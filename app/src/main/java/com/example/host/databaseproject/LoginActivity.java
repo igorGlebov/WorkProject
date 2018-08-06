@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
-    private Button registerButtonMain;
+    private Button registerButtonMain; // кнопки для регистрации в авторизации
     private Button signupButtonMain;
 
     private EditText emailTextRegister;
