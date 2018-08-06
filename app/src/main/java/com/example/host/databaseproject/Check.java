@@ -24,7 +24,9 @@ public abstract class Check {
     }
 
     public static boolean checkPassword(String password){
-       String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])((?=\\S+$)(?=.{6,})";
+       //String pattern = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])((?=\\S+$)(?=.{6,}))";
+       String pattern = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,})";
+
        if(password.matches(pattern)){
            return true;
        }
@@ -35,7 +37,10 @@ public abstract class Check {
     }
 
     public static boolean checkName(String name){
-        String pattern = "(?=.*[0-9]+$)(?=.*[а-я])(?=.*[А-Я])((?=\\S+$).{1,}";
+        //String pattern = "(?=.*[0-9]+$)(?=.*[а-я])(?=.*[А-Я])((?=\\S+$).{1,}";
+        String pattern = "((?=.*\\d+$)(?=.*[а-я])(?=.*[А-Я]).{2,})";
+
+
         if(name.matches(pattern)){
             return true;
         }
