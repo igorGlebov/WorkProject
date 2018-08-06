@@ -11,13 +11,17 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseAnalytics firebaseAnalytics;
+
 
     Button buttonRegister;
 
@@ -46,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
         emailTextRegister = findViewById(R.id.emailTextRegister);
         passwordTextRegister = findViewById(R.id.passwordTextRegister);
         passwordTextRegister2 = findViewById(R.id.passwordTextRegister2);
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,10 +103,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     FirebaseUser user = mAuth.getCurrentUser();
-                    user.sendEmailVerification(); // отправления письма на почту
+                    //user.sendEmailVerification(); // отправления письма на почту
+                    firebaseAnalytics.setUserProperty("Name", nameTextRegister.getText().toString());
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
                 }
             }
         });
+
     }
 }
