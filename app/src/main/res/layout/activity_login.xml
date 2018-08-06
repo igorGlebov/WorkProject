@@ -31,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/SignInButtonMain"
         app:layout_constraintVertical_bias="0.023" />
 
+
     <EditText
         android:id="@+id/emailTextRegister"
         android:layout_width="match_parent"
@@ -45,16 +46,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passwordTextRegister2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Пароль"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/SignInButtonMain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextRegister" />
+            android:id="@+id/passwordTextRegister2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/SignInButtonMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextRegister" />
+
 
 </android.support.constraint.ConstraintLayout>
