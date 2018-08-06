@@ -57,16 +57,42 @@ public class RegisterActivity extends AppCompatActivity {
     private void startSignUp() {
         String email = emailTextRegister.getText().toString();
         String password = passwordTextRegister.getText().toString();
-        String password2 = passwordTextRegister2.getText().toString();
 
+        if(!Check.checkEmail(email)){
+            Toast.makeText(RegisterActivity.this, "Неверная структура e-mail!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
+        if (!Check.comparePassword(password, passwordTextRegister2.getText().toString())){
+            Toast.makeText(RegisterActivity.this, "Пароли не совпадают!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
+        if(!Check.checkPassword(password)){
+            Toast.makeText(RegisterActivity.this, "Усложните пароль! Он обязательно должен содержать символы высокого и низкого регистра и цифры", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!Check.checkName(nameTextRegister.getText().toString())){
+            Toast.makeText(RegisterActivity.this, "Проверьте имя!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!Check.checkName(secondNameTextRegister.getText().toString())){
+            Toast.makeText(RegisterActivity.this, "Проверьте фамилию!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!Check.checkName(fatherNameTextRegister.getText().toString())){
+            Toast.makeText(RegisterActivity.this, "Проверьте отчество!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, "Ошибка при регистрации", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Ошибка при регистрации! Что-то пошло не так!", Toast.LENGTH_LONG).show();
                 }
                 else{
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
