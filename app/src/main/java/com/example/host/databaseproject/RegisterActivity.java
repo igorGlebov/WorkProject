@@ -52,26 +52,26 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        nameTextRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nameTextRegister.setText("");
-            }
-        });
-
-        passwordTextRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                passwordTextRegister.setText("");
-            }
-        });
-
-        passwordTextRegister2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                passwordTextRegister2.setText("");
-            }
-        });
+//        nameTextRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nameTextRegister.setText("");
+//            }
+//        });
+//
+//        passwordTextRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                passwordTextRegister.setText("");
+//            }
+//        });
+//
+//        passwordTextRegister2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                passwordTextRegister2.setText("");
+//            }
+//        });
 
 
 
