@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 passwordTextRegister2.setText("");
             }
-        }); // лул
+        });
 
 
 
