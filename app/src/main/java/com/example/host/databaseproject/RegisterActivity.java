@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -95,6 +96,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Ошибка при регистрации! Что-то пошло не так!", Toast.LENGTH_LONG).show();
                 }
                 else{
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    user.sendEmailVerification(); // отправления письма на почту
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
                 }
             }
