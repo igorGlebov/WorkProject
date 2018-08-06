@@ -70,25 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
-                    //Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
-
-
     }
-
-    //
-    //Checks
-    //
-
-
-
-
-
-
-
-
-
 }
