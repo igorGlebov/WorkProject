@@ -25,7 +25,7 @@ public class AccountActivity extends AppCompatActivity {
     private DatabaseReference myRef; // ссылка на данные
 
     @Override
-    protected void onCreate(Bundle savedInstanceState ) {
+    protected void onCreate(Bundle savedInstanceState ) { // присоединение к базе данных
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
@@ -48,7 +48,7 @@ public class AccountActivity extends AppCompatActivity {
         });
     }
 
-    private String[] createGoodsList (String str){
+    private String[] createGoodsList (String str){ // Создание списка товаров
         str = str.substring(1, str.length() - 1);
 
         String[] databaseList;
