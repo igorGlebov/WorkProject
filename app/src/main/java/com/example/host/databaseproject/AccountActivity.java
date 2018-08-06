@@ -40,12 +40,12 @@ public class AccountActivity extends AppCompatActivity {
                 String string = dataSnapshot.getValue().toString();
                 fillView(createGoodsList(string));
             }
-                                                                                                                                                                                                                                                        RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(AccountActivity.this, "Error", Toast.LENGTH_LONG).show();
             }
-        }) ;
+        });
     }
 
     private String[] createGoodsList (String str){
