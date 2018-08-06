@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if(!Check.checkEmail(email)){
             Toast.makeText(LoginActivity.this, "Неверный E-mail", Toast.LENGTH_LONG).show();
+            return;
         }
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
