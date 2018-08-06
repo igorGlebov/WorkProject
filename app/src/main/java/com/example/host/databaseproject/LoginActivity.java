@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private Button registerButtonMain; // кнопки для регистрации в авторизации
-    private Button signupButtonMain;
+    private Button signupButtonMain; // кнопка
 
     private EditText emailTextRegister;
     private EditText passwordTextRegister;
