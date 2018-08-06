@@ -20,7 +20,7 @@ import java.util.List;
 
 public class AccountActivity extends AppCompatActivity {
 
-    ListView listView;
+    ListView listView; // Список товаров
 
     private DatabaseReference myRef; // ссылка на данные
 
