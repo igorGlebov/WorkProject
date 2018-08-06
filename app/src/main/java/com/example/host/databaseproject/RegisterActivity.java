@@ -1,5 +1,6 @@
 package com.example.host.databaseproject;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,7 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
+                    //Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно", Toast.LENGTH_LONG).show();
                 }
             }
         });
