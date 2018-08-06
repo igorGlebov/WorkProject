@@ -104,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else{
                     FirebaseUser user = mAuth.getCurrentUser();
                     //user.sendEmailVerification(); // отправления письма на почту
-                    firebaseAnalytics.setUserProperty("Name", nameTextRegister.getText().toString());
+                    //firebaseAnalytics.setUserProperty("Name", nameTextRegister.getText().toString());
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
                 }
             }
