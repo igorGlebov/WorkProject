@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private Button registerButtonMain;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         registerButtonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_LONG).show();
                 }
                 else{
-                   startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                   startActivity(new Intent(LoginActivity.this, AccountActivity.class));
                 }
             }
         });

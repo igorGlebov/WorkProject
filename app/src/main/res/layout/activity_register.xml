@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/nameText"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:width="100dp"
         android:contentDescription="Имя"
@@ -24,7 +24,7 @@
 
     <EditText
         android:id="@+id/secondNameText"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:width="100dp"
         android:ems="10"
@@ -39,7 +39,7 @@
 
     <EditText
         android:id="@+id/fatherNameText"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:width="100dp"
         android:ems="10"
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:width="100dp"
@@ -66,7 +66,7 @@
 
     <EditText
         android:id="@+id/emailTextRegister"
-        android:layout_width="367dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
@@ -79,7 +79,7 @@
 
     <EditText
         android:id="@+id/passwordTextRegister"
-        android:layout_width="367dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
@@ -92,7 +92,7 @@
 
     <EditText
         android:id="@+id/passwordTextRegister2"
-        android:layout_width="367dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
