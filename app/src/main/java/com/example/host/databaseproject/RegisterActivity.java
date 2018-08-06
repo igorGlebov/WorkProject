@@ -19,8 +19,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button buttonRegister;
 
-    EditText emailEditTextRegister;
-    EditText passwordEditTextRegister;
+    EditText nameTextRegister;
+    EditText secondNameTextRegister;
+    EditText fatherNameTextRegister;
+
+
+    EditText emailTextRegister;
+    EditText passwordTextRegister;
+    EditText passwordTextRegister2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +35,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonRegister = findViewById(R.id.buttonRegister);
 
-        emailEditTextRegister = (EditText) findViewById(R.id.emailTextRegister);
-        passwordEditTextRegister = (EditText) findViewById(R.id.passwordTextRegister);
+        nameTextRegister = findViewById(R.id.nameText);
+        secondNameTextRegister = findViewById(R.id.secondNameText);
+        fatherNameTextRegister = findViewById(R.id.fatherNameText);
+
+        emailTextRegister = findViewById(R.id.emailTextRegister);
+        passwordTextRegister = findViewById(R.id.passwordTextRegister);
+        passwordTextRegister2 = findViewById(R.id.passwordTextRegister2);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,11 +51,38 @@ public class RegisterActivity extends AppCompatActivity {
                 startSignUp();
             }
         });
+
+        nameTextRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTextRegister.setText("");
+            }
+        });
+
+        passwordTextRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passwordTextRegister.setText("");
+            }
+        });
+
+        passwordTextRegister2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passwordTextRegister2.setText("");
+            }
+        });
+
+
+
+
+
+
     }
 
     private void startSignUp() {
-        String email = emailEditTextRegister.getText().toString();
-        String password = passwordEditTextRegister.getText().toString();
+        String email = emailTextRegister.getText().toString();
+        String password = passwordTextRegister.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -58,5 +96,19 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+    //
+    //Checks
+    //
+
+
+
+
+
+
+
+
 }

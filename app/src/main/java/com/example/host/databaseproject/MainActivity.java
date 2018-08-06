@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         signupButtonMain = findViewById(R.id.SignInButtonMain);
 
         emailTextRegister = findViewById(R.id.emailTextRegister);
-        passwordTextRegister = findViewById(R.id.passwordTextRegister);
+        passwordTextRegister = findViewById(R.id.passwordTextRegister2);
 
         registerButtonMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 startSignIn();
             }
         });
+
+
+
     }
 
 

@@ -7,38 +7,24 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/passwordTextRegister2"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:width="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Пароль"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextRegister"
-        app:layout_constraintVertical_bias="0.417" />
-
-    <EditText
         android:id="@+id/nameText"
-        android:layout_width="223dp"
+        android:layout_width="365dp"
         android:layout_height="45dp"
         android:width="100dp"
+        android:contentDescription="Имя"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Имя"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.145" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <EditText
         android:id="@+id/secondNameText"
-        android:layout_width="223dp"
+        android:layout_width="365dp"
         android:layout_height="45dp"
         android:width="100dp"
         android:ems="10"
@@ -46,14 +32,14 @@
         android:text="Фамилия"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <EditText
         android:id="@+id/fatherNameText"
-        android:layout_width="223dp"
+        android:layout_width="365dp"
         android:layout_height="45dp"
         android:width="100dp"
         android:ems="10"
@@ -61,52 +47,61 @@
         android:text="Отчество"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
-
-    <EditText
-        android:id="@+id/emailTextRegister"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:width="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Адрес электронной поты"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532" />
-
-    <EditText
-        android:id="@+id/passwordTextRegister"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:width="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Пароль"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextRegister"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.268" />
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="223dp"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
         android:width="100dp"
         android:text="Зарегистрироваться"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/emailTextRegister"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="e-mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextRegister"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintTop_toBottomOf="@+id/fatherNameText" />
+
+    <EditText
+        android:id="@+id/passwordTextRegister"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Пароль"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <EditText
+        android:id="@+id/passwordTextRegister2"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Пароль"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
 
 </android.support.constraint.ConstraintLayout>
