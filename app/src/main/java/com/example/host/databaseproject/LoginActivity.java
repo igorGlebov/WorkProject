@@ -59,16 +59,21 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailTextRegister.getText().toString();
         String password = passwordTextRegister.getText().toString();
 
+        if(!Check.checkEmail(email)){
+            Toast.makeText(LoginActivity.this, "Неверный E-mail", Toast.LENGTH_LONG).show();
+        }
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Ошибка при входе", Toast.LENGTH_LONG).show();
                 }
                 else{
                    startActivity(new Intent(LoginActivity.this, AccountActivity.class));
                 }
             }
+
         });
     }
 }
