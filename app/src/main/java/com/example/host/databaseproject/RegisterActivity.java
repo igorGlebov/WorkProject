@@ -57,12 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
     private void startSignUp() {
         String email = emailTextRegister.getText().toString();
         String password = passwordTextRegister.getText().toString();
+        String password2 = passwordTextRegister2.getText().toString();
+
+
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Ошибка при регистрации", Toast.LENGTH_LONG).show();
                 }
                 else{
                     startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
@@ -78,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
     //
     //Checks
     //
+
 
 
 
