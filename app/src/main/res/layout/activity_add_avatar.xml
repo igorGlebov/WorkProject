@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".AddAvatarActivity">
 
+    <Button
+        android:id="@+id/addAvatarButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Добавить аватар"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/skipAvatarButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Пропустить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addAvatarButton"
+        app:layout_constraintVertical_bias="0.142" />
 </android.support.constraint.ConstraintLayout>
