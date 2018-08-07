@@ -9,6 +9,8 @@ import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 
 public class CustomDialogFragment extends DialogFragment {
+
+    public int change = 5;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -20,10 +22,10 @@ public class CustomDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(which == 0){
-
+                            change = 0;
                         }
                         else{
-
+                            change = 1;
                         }
                     }
                 })

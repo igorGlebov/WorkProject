@@ -15,6 +15,7 @@ public class AddAvatarActivity extends AppCompatActivity {
     private Button addAvatarButton;
     private static final int CAMERA_REQUEST = 0;
     private ImageView imageAvatar; // фотка
+    public int change = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +30,26 @@ public class AddAvatarActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "custom");
-//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // не удалять, для снимка
-//                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                int change = dialogFragment.change;
+                if(change == 0){
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // так не работает
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
             }
         });
+
+
     }
 
 
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-//            // Фотка сделана, извлекаем картинку
-//            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-//            imageAvatar.setImageBitmap(thumbnailBitmap);
-//        }
-//    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            // Фотка сделана, извлекаем картинку
+            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+            imageAvatar.setImageBitmap(thumbnailBitmap);
+        }
+    }
+
+
 }
