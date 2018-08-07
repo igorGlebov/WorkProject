@@ -33,7 +33,7 @@ public class CustomDialogFragment extends DialogFragment {
                             datable.openCamera();
                         }
                         else{
-                            //change = 1;
+                            datable.openGallery();
                         }
                     }
                 })
