@@ -27,18 +27,21 @@ public class AddAvatarActivity extends AppCompatActivity {
         addAvatarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                CustomDialogFragment dialogFragment = new CustomDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(), "custom");
+//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // не удалять, для снимка
+//                startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
         });
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            // Фотка сделана, извлекаем картинку
-            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-            imageAvatar.setImageBitmap(thumbnailBitmap);
-        }
-    }
+
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+//            // Фотка сделана, извлекаем картинку
+//            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+//            imageAvatar.setImageBitmap(thumbnailBitmap);
+//        }
+//    }
 }
