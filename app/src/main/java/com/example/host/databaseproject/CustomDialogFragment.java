@@ -12,6 +12,7 @@ public class CustomDialogFragment extends DialogFragment {
         return builder
                 .setTitle("Диалоговое окно")
                 .setIcon(android.R.drawable.ic_dialog_alert)
+                .setView(R.layout.dialog)
                 .setNeutralButton("Нажать", null)
                 .create();
         //return super.onCreateDialog(savedInstanceState);
