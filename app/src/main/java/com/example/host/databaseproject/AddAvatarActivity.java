@@ -10,12 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class AddAvatarActivity extends AppCompatActivity {
+public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     private Button addAvatarButton;
     private static final int CAMERA_REQUEST = 0;
     private ImageView imageAvatar; // фотка
-    public int change = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +29,16 @@ public class AddAvatarActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "custom");
-                int change = dialogFragment.change;
-                if(change == 0){
-                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // так не работает
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
-                }
             }
         });
 
-
     }
 
+    @Override
+    public void openCamera() {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
         super.onActivityResult(requestCode, resultCode, data);
