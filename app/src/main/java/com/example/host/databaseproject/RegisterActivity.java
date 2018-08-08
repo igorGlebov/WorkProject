@@ -125,11 +125,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void addUserToDatabase(User user){
-        DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
-        userRef.setValue(user);
-
-    }
+//    private void addUserToDatabase(User user){
+//        DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
+//        userRef.setValue(user);
+//
+//    }
 
 
 
