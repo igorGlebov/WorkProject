@@ -15,12 +15,16 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.Serializable;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseAnalytics firebaseAnalytics;
-
+    private FirebaseDatabase database;
+    private User user;
 
     Button buttonRegister;
 
@@ -39,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         buttonRegister = findViewById(R.id.buttonRegister);
 
@@ -50,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
         passwordTextRegister = findViewById(R.id.passwordTextRegister);
         passwordTextRegister2 = findViewById(R.id.passwordTextRegister2);
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +65,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void startSignUp() {
-        String email = emailTextRegister.getText().toString();
+        final String email = emailTextRegister.getText().toString();
         String password = passwordTextRegister.getText().toString();
+        final String name = nameTextRegister.getText().toString();
+        final String surname = secondNameTextRegister.getText().toString();
+        final String fatherName = fatherNameTextRegister.getText().toString();
 
         if(!Check.checkEmail(email)){
             Toast.makeText(RegisterActivity.this, "Неверная структура e-mail!", Toast.LENGTH_LONG).show();
@@ -79,20 +86,22 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if (!Check.checkName(nameTextRegister.getText().toString())){
+        if (!Check.checkName(name)){
             Toast.makeText(RegisterActivity.this, "Проверьте имя!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (!Check.checkName(secondNameTextRegister.getText().toString())){
+        if (!Check.checkName(surname)){
             Toast.makeText(RegisterActivity.this, "Проверьте фамилию!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (!Check.checkName(fatherNameTextRegister.getText().toString())){
+        if (!Check.checkName(fatherName)){
             Toast.makeText(RegisterActivity.this, "Проверьте отчество!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        //user = new User(email, name, surname, fatherName);
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -104,10 +113,27 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     //user.sendEmailVerification(); // отправления письма на почту
                     //firebaseAnalytics.setUserProperty("Name", nameTextRegister.getText().toString());
-                    startActivity(new Intent(RegisterActivity.this, AddAvatarActivity.class));
+                    Intent intent = new Intent(RegisterActivity.this, AddAvatarActivity.class);
+                    intent.putExtra("user", new User(email,name, surname,fatherName, mAuth.getUid().toString()));
+
+                    startActivity(intent);
                 }
             }
         });
 
+        //addUserToDatabase(new User(email, name, surname, fatherName, mAuth.getCurrentUser().getUid()));
+
     }
+
+    private void addUserToDatabase(User user){ //TODO
+        DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
+        userRef.setValue(user);
+
+    }
+
+
+
 }
+
+
+

@@ -2,12 +2,15 @@ package com.example.host.databaseproject;
 
 import android.graphics.Bitmap;
 
-public class User {
+import java.io.Serializable;
+
+public class  User implements Serializable {
     private String email;
     private String name;
     private String surname;
     private String fatherName;
     private Bitmap avatar;
+    private String userID;
 
 
     public String getEmail() {
@@ -50,10 +53,19 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(String email, String name, String surname, String fatherName){
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public User(String email, String name, String surname, String fatherName, String userID){
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.fatherName = fatherName;
+        this.userID = userID;
     }
 }
