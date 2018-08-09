@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".AccountActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AddAvatarActivity"></activity>
+        <activity android:name=".AddAvatarActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
