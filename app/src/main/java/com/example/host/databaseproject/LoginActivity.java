@@ -73,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Ошибка при входе", Toast.LENGTH_LONG).show();
                 }
                 else{
-                   startActivity(new Intent(LoginActivity.this, AccountActivity.class));
-                   // startActivity(new Intent(LoginActivity.this, SettingsActivity.class));
+                   //startActivity(new Intent(LoginActivity.this, AccountActivity.class));
+                    startActivity(new Intent(LoginActivity.this, SettingsActivity2.class));
 
                 }
             }

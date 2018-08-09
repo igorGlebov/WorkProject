@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity2">
 
     <Button
-        android:id="@+id/changePasswordSettingsButton"
+        android:id="@+id/changePasswordSettingsButton2"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,10 +18,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <Button
-        android:id="@+id/changeNameSettingsButton"
+        android:id="@+id/changeNameSettingsButton2"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,10 +32,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
-        android:id="@+id/emailSettingsView"
+        android:id="@+id/emailSettingsView2"
         android:layout_width="212dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
@@ -45,21 +45,21 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/settingsAvatarView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <ImageView
-        android:id="@+id/settingsAvatarView"
+        android:id="@+id/settingsAvatarView2"
         android:layout_width="140dp"
         android:layout_height="122dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/default_avatar" />
 
     <TextView
-        android:id="@+id/nameSettingsView"
+        android:id="@+id/nameSettingsView2"
         android:layout_width="212dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/changeEmailSettingsButton"
+        android:id="@+id/changeEmailSettingsButton2"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -83,6 +83,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
-
+        app:layout_constraintVertical_bias="0.287" />
 </android.support.constraint.ConstraintLayout>

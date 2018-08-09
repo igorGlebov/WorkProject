@@ -68,4 +68,14 @@ public class  User implements Serializable {
         this.fatherName = fatherName;
         this.userID = userID;
     }
+
+    public User(String email, String name, String surname, String fatherName, String userID, Bitmap avatar){
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.fatherName = fatherName;
+        this.userID = userID;
+        this.avatar = avatar;
+    }
+
 }
