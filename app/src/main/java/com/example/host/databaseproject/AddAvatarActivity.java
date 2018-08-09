@@ -50,6 +50,10 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "custom");
                 //addUserToDatabase();//Добавим пользователя в базу
+                addUserToDatabase();//Добавим пользователя в базу
+
+                startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
+
 
             }
         });
@@ -62,6 +66,10 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
                 Bitmap bitmap = ((BitmapDrawable)imageAvatar.getDrawable()).getBitmap();
                 user.setAvatar(bitmap);
                 //addUserToDatabase();//Добавим пользователя в базу
+                addUserToDatabase();//Добавим пользователя в базу
+
+                startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
+
 
             }
         });
@@ -101,7 +109,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
                     }
             }
         }
-        addUserToDatabase();//Добавим пользователя в базу
+        //addUserToDatabase();//Добавим пользователя в базу
 
     }
 
