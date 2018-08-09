@@ -20,7 +20,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AddAvatarActivity" />
         <activity
-            android:name=".catalogueActivity"
+            android:name=".CatalogueActivity"
             android:label="@string/title_activity_catalogue"
             android:theme="@style/AppTheme"></activity>
     </application>
