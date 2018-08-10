@@ -28,9 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //startActivity(new Intent(LoginActivity.this, AccountActivity.class));
+        //startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
 
         mAuth = FirebaseAuth.getInstance();
+
+        mAuth.signOut();
 
         registerButtonMain = findViewById(R.id.RegisterButtonMain);
         signupButtonMain = findViewById(R.id.SignInButtonMain);
@@ -74,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                    //startActivity(new Intent(LoginActivity.this, AccountActivity.class));
-                    startActivity(new Intent(LoginActivity.this, SettingsActivity2.class));
+                    startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
 
                 }
             }
