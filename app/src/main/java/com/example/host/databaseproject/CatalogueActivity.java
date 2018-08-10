@@ -88,7 +88,7 @@ public class CatalogueActivity extends AppCompatActivity
 
         }
         else if(id == R.id.logOut) {
-
+            startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
