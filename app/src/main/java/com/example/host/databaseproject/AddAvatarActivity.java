@@ -19,7 +19,7 @@ import java.io.IOException;
 public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     private Button addAvatarButton;
-    private Button skipAvatarButton;
+    private Button continueAvatarButton;
     private static final int CAMERA_REQUEST = 0;
     static final int GALLERY_REQUEST = 1;
     private ImageView imageAvatar; // фотка
@@ -34,7 +34,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
         setContentView(R.layout.activity_add_avatar);
 
         addAvatarButton = findViewById(R.id.addAvatarButton);
-        skipAvatarButton = findViewById(R.id.skipAvatarButton);
+        continueAvatarButton = findViewById(R.id.continueAvatarButton);
         imageAvatar = findViewById(R.id.imageView);
 
         //Подпихнули пользователя
@@ -50,9 +50,9 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "custom");
                 //addUserToDatabase();//Добавим пользователя в базу
-                addUserToDatabase();//Добавим пользователя в базу
+                //addUserToDatabase();//Добавим пользователя в базу
 
-                startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
+                //startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
 
 
             }
@@ -60,7 +60,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
 
         //Вызовется в случае нажатия "Пропустить". Как ава прикрутится параша по умолчанию (Наверное))0))
-        skipAvatarButton.setOnClickListener(new View.OnClickListener() {
+        continueAvatarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bitmap bitmap = ((BitmapDrawable)imageAvatar.getDrawable()).getBitmap();

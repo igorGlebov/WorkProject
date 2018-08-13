@@ -51,8 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
 //
 //        //
 //        //Дергаем данные пользователя и выводим их куда-то там
-//        //ГЫ))))00)
-//        //Так, у нас тут серьезный проект ебана, собрались
+//        //
 //        userReference.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {

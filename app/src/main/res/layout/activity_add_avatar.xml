@@ -19,10 +19,10 @@
         app:layout_constraintVertical_bias="0.745" />
 
     <Button
-        android:id="@+id/skipAvatarButton"
+        android:id="@+id/continueAvatarButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Пропустить"
+        android:text="Продолжить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

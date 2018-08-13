@@ -11,10 +11,7 @@
             android:checked="true"/>
         <item
             android:id="@+id/settings"
-            android:title="Настройки"
-            app:itemTextColor="@color/colorGreenYellow"
-            app:itemBackground="@color/colorGreenYellow"
-            app:itemIconTint="@color/colorGreenYellow"/>
+            android:title="Настройки" />
 
         <item
             android:id="@+id/logOut"

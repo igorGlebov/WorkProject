@@ -54,25 +54,45 @@ public class SettingsActivity2 extends AppCompatActivity {
 
         //
         //Дергаем данные пользователя и выводим их куда-то там
-        //ГЫ))))00)
-        //Так, у нас тут серьезный проект ебана, собрались
-        userReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                user = new User(null, null, null, null, null, null);
-                user = dataSnapshot.child(currentUser.getUid().toString()).getValue(User.class);
-                //user = (User)dataSnapshot.getValue();
-                nameView.setText(user.getSurname() + " " + user.getName() + " " + user.getFatherName());
-                emailView.setText(user.getEmail());
-                avatarView.setImageBitmap(user.getAvatar());
-            }
+        //
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(SettingsActivity2.this, "Ошибка в загрузке данных пользователя", Toast.LENGTH_LONG);
-                return;
-            }
-        });
+         userReference.child("Users").child(mAuth.getUid()).child("avatar").addListenerForSingleValueEvent(new ValueEventListener() {
+             @Override
+             public void onDataChange(DataSnapshot dataSnapshot) {
+                 Bitmap ava = dataSnapshot.getValue(Bitmap.class);
+//                 user = dataSnapshot.getValue(User.class);
+//                 nameView.setText(user.getSurname() + " " + user.getName() + " " + user.getFatherName());
+//                 emailView.setText(user.getEmail());
+//                 avatarView.setImageBitmap(user.getAvatar());
+             }
+
+             @Override
+             public void onCancelled(DatabaseError databaseError) {
+                 Toast.makeText(SettingsActivity2.this, "Ошибка в загрузке данных пользователя", Toast.LENGTH_LONG);
+                 return;
+             }
+         });
+
+//        userReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()){
+//                    user = new User(null, null, null, null, null, null);
+//                    user = dataSnapshot.getValue(User.class);
+//                    //user = (User)dataSnapshot.getValue();
+//                    nameView.setText(user.getSurname() + " " + user.getName() + " " + user.getFatherName());
+//                    emailView.setText(user.getEmail());
+//                    avatarView.setImageBitmap(user.getAvatar());
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Toast.makeText(SettingsActivity2.this, "Ошибка в загрузке данных пользователя", Toast.LENGTH_LONG);
+//                return;
+//            }
+//        });
 
 
     }
