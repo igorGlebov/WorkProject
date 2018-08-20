@@ -8,49 +8,53 @@
 
     <Button
         android:id="@+id/changePasswordSettingsButton2"
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@android:color/background_light"
         android:text="Изменить пароль"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintVertical_bias="0.368" />
 
     <Button
         android:id="@+id/changeNameSettingsButton2"
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@android:color/background_light"
         android:text="Изменить личные данные"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.448" />
 
     <TextView
         android:id="@+id/emailSettingsView2"
-        android:layout_width="212dp"
+        android:layout_width="313dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:text="E-mail"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/settingsAvatarView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <ImageView
         android:id="@+id/settingsAvatarView2"
-        android:layout_width="140dp"
-        android:layout_height="122dp"
+        android:layout_width="215dp"
+        android:layout_height="197dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
@@ -60,10 +64,12 @@
 
     <TextView
         android:id="@+id/nameSettingsView2"
-        android:layout_width="212dp"
+        android:layout_width="311dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:text="FIO"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -73,11 +79,12 @@
 
     <Button
         android:id="@+id/changeEmailSettingsButton2"
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="#1fffffff"
         android:text="Изменить  e-mail"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
