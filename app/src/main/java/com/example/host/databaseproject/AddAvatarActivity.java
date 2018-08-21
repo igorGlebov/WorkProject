@@ -5,17 +5,26 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.host.databaseproject.OurClasses.User;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
@@ -27,6 +36,11 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
     Intent intent;//чтобы забрать экземпляр пользователя
     FirebaseDatabase database;
     private User user;
+
+    private FirebaseStorage usersStorage;
+    private StorageReference storageReference;
+
+
 
 
     @Override
@@ -42,6 +56,11 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
         database = FirebaseDatabase.getInstance();
         intent = getIntent();
         user = (User)intent.getSerializableExtra("user");
+        //
+
+        //Хранилище
+        usersStorage = FirebaseStorage.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
         //
 
 
@@ -123,9 +142,28 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
 
     private void addUserToDatabase(){
+        putAvatarToStorage(((BitmapDrawable)imageAvatar.getDrawable()).getBitmap());
+
         DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
 
         userRef.setValue(user);
 
     }
+
+    void putAvatarToStorage(Bitmap avatar){
+        ByteArrayOutputStream avatarBytesStream = new ByteArrayOutputStream();
+        avatar.compress(Bitmap.CompressFormat.PNG, 100, avatarBytesStream);
+        byte[] avatarBytes = avatarBytesStream.toByteArray();
+        storageReference.child(user.getUserID());
+        StorageReference newRef = storageReference.child(user.getUserID() + "/avatar.png");
+        UploadTask uploadTask = newRef.putBytes(avatarBytes);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AddAvatarActivity.this, "Что-то не так с загрузкой изображения в базу.", Toast.LENGTH_LONG);
+            }
+        });
+    }
+
+
 }
