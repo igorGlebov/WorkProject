@@ -11,6 +11,7 @@ public class  User implements Serializable {
     private String fatherName;
     private Bitmap avatar;
     private String userID;
+    private boolean isAdmin;
 
 
     public String getEmail() {
@@ -61,12 +62,21 @@ public class  User implements Serializable {
         this.userID = userID;
     }
 
+    public boolean getAdminStarus() {
+        return isAdmin;
+    }
+
+    public void setAdminStatus (boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     public User(String email, String name, String surname, String fatherName, String userID){
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.fatherName = fatherName;
         this.userID = userID;
+        this.isAdmin = false;
     }
 
     public User(String email, String name, String surname, String fatherName, String userID, Bitmap avatar){
@@ -76,6 +86,7 @@ public class  User implements Serializable {
         this.fatherName = fatherName;
         this.userID = userID;
         this.avatar = avatar;
+        this.isAdmin = false;
     }
 
 }

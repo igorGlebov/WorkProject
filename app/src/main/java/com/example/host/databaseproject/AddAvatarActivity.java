@@ -160,7 +160,8 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AddAvatarActivity.this, "Что-то не так с загрузкой изображения в базу.", Toast.LENGTH_LONG);
+                Toast.makeText(AddAvatarActivity.this, "Что-то не так с загрузкой изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG);
+
             }
         });
     }
