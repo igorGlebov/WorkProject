@@ -1,5 +1,6 @@
 package com.example.host.databaseproject;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -54,7 +55,6 @@ public class SettingsActivity2 extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        //DatabaseReference userReference = database.getReference("Users").child(currentUser.getUid().toString());
         final DatabaseReference userReference = database.getReference("Users");
 
         //Смена аватара
@@ -66,12 +66,19 @@ public class SettingsActivity2 extends AppCompatActivity {
             }
         });
 
-
+        //Смена пароля
+        changePasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity2.this, ChangePasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //
         //Дергаем данные пользователя и выводим их куда-то там
         //
-
+        //Данные-строки
         userReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,43 +99,6 @@ public class SettingsActivity2 extends AppCompatActivity {
             }
         });
 
-//         userReference.child("Users").child(mAuth.getUid()).child("avatar").addListenerForSingleValueEvent(new ValueEventListener() {
-//             @Override
-//             public void onDataChange(DataSnapshot dataSnapshot) {
-//                 Bitmap ava = dataSnapshot.getValue(Bitmap.class);
-////                 user = dataSnapshot.getValue(User.class);
-////                 nameView.setText(user.getSurname() + " " + user.getName() + " " + user.getFatherName());
-////                 emailView.setText(user.getEmail());
-////                 avatarView.setImageBitmap(user.getAvatar());
-//             }
-//
-//             @Override
-//             public void onCancelled(DatabaseError databaseError) {
-//                 Toast.makeText(SettingsActivity2.this, "Ошибка в загрузке данных пользователя", Toast.LENGTH_LONG);
-//                 return;
-//             }
-//         });
-
-//        userReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()){
-//                    user = new User(null, null, null, null, null, null);
-//                    user = dataSnapshot.getValue(User.class);
-//                    //user = (User)dataSnapshot.getValue();
-//                    nameView.setText(user.getSurname() + " " + user.getName() + " " + user.getFatherName());
-//                    emailView.setText(user.getEmail());
-//                    avatarView.setImageBitmap(user.getAvatar());
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Toast.makeText(SettingsActivity2.this, "Ошибка в загрузке данных пользователя", Toast.LENGTH_LONG);
-//                return;
-//            }
-//        });
 
 
     }

@@ -1,4 +1,4 @@
-package com.example.host.databaseproject;
+package com.example.host.databaseproject.OurClasses;
 
 public abstract class Check {
 
