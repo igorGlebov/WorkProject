@@ -76,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                    //startActivity(new Intent(LoginActivity.this, AccountActivity.class));
                     //startActivity(new Intent(LoginActivity.this, SettingsActivity2.class));
-                    startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
-
+                    //startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
+                    startActivity(new Intent(LoginActivity.this, SettingsActivity2.class));
 
                 }
             }

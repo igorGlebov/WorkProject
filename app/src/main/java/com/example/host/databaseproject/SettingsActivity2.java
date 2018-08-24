@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.host.databaseproject.OurClasses.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,12 +28,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StreamDownloadTask;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -67,6 +70,13 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
     private EditText fatherNameView;
     private EditText emailView;
 
+
+    //Итак, что тут работает
+    //1) Смена аватара
+    //2) Смена и вывод ФИО и мыла
+    //3) Криво работает смена пароля
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +97,7 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
         currentUser = mAuth.getCurrentUser();
         storage = FirebaseStorage.getInstance();
 
-
+        //fix#1
         userReference = database.getReference("Users");
         storageReference = storage.getReference(currentUser.getUid());
 
@@ -135,21 +145,45 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
                 Toast.makeText(SettingsActivity2.this, "Ошибка при считывании данных пользоветеля", Toast.LENGTH_LONG);
             }
         });
-        //Аватарка
-         storageReference.child("avatar.png").getStream().addOnCompleteListener(new OnCompleteListener<StreamDownloadTask.TaskSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<StreamDownloadTask.TaskSnapshot> task) {
-                if(task.isSuccessful()){
-                    Bitmap b;
-                    b = BitmapFactory.decodeStream(task.getResult().getStream());
-                    changeAvatarButton.setImageBitmap(b);
-                }
-                else{
-                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
-                }
-            }
 
-        });
+
+        //Аватарка
+
+//        File tmpFile = null;
+//        try {
+//            tmpFile = File.createTempFile("tmpAvatar", "png");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        storageReference.getFile(tmpFile).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+//                if(task.isSuccessful()){
+//                    BitmapFactory.Options options = new BitmapFactory.Options();
+//                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+//                    Bitmap b = BitmapFactory.decodeFile(tmpFile.getPath().toString(), options);
+//
+//                    changeAvatarButton.setImageBitmap(b);
+//                }
+//                else{
+//                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
+//                }
+//            }
+//        });
+//         storageReference.child("avatar.png").getStream().addOnCompleteListener(new OnCompleteListener<StreamDownloadTask.TaskSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<StreamDownloadTask.TaskSnapshot> task) {
+//                if(task.isSuccessful()){
+//                    Bitmap b;
+//                    b = BitmapFactory.decodeStream(task.getResult().getStream());
+//                    changeAvatarButton.setImageBitmap(b);
+//                }
+//                else{
+//                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
+//                }
+//            }
+//
+//        });
 
     }
 
@@ -157,17 +191,18 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
     @Override
     protected void onStop() {
         super.onStop();
-        if(!nameView.getText().toString().isEmpty()){
-            userReference.child("name").setValue(nameView.getText().toString());
+        if(!nameView.getText().toString().isEmpty() && !nameView.getText().toString().equals(name)){
+            userReference.child(currentUser.getUid()).child("name").setValue(nameView.getText().toString());
         }
-        if(!surnameView.getText().toString().isEmpty()){
-            userReference.child("surname").setValue(surnameView.getText().toString());
+        if(!surnameView.getText().toString().isEmpty() && !surnameView.getText().toString().equals(surname)){
+            userReference.child(currentUser.getUid()).child("surname").setValue(surnameView.getText().toString());
         }
-        if(!fatherNameView.getText().toString().isEmpty()){
-            userReference.child("fatherName").setValue(fatherNameView.getText().toString());
+        if(!fatherNameView.getText().toString().isEmpty() && !fatherNameView.getText().toString().equals(fatherName)){
+            userReference.child(currentUser.getUid()).child("fatherName").setValue(fatherNameView.getText().toString());
         }
-        if(!emailView.getText().toString().isEmpty()){
-            userReference.child("email").setValue(emailView.getText().toString());
+        if(!emailView.getText().toString().isEmpty() && !emailView.getText().toString().equals(email)){
+            userReference.child(currentUser.getUid()).child("email").setValue(emailView.getText().toString());
+            currentUser.updateEmail(emailView.getText().toString());
         }
     }
     //
@@ -230,7 +265,7 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
         avatar.compress(Bitmap.CompressFormat.PNG, 100, avatarBytesStream);
         byte[] avatarBytes = avatarBytesStream.toByteArray();
         storageReference.child(currentUser.getUid());
-        StorageReference newRef = storageReference.child(currentUser.getUid() + "/avatar.png");
+        StorageReference newRef = storageReference.child("avatar.png");
         UploadTask uploadTask = newRef.putBytes(avatarBytes);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
