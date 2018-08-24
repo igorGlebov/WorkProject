@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/default_avatar" />
+         />
 
     <EditText
         android:id="@+id/nameSettingsView"
