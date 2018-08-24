@@ -33,3 +33,11 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.kyanogen.signatureview:signature-view:1.2'
+}
