@@ -3,6 +3,7 @@ package com.example.host.databaseproject;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -148,6 +149,20 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
 
 
         //Аватарка
+
+        //Glide.with(this).load(storageReference.child("avatar.png").getDownloadUrl()).into(changeAvatarButton);
+        storageReference.child("avatar.png").getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if(task.isSuccessful()){
+                    Glide.with(SettingsActivity2.this).load(task.getResult()).into(changeAvatarButton);
+                }
+                else{
+
+                }
+            }
+        });
+
 
 //        File tmpFile = null;
 //        try {
