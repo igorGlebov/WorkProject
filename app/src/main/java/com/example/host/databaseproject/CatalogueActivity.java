@@ -104,7 +104,6 @@ public class CatalogueActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.katalog) {
-            //Set the fragment initially
             CatalogueFragment fragment = new CatalogueFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -112,7 +111,6 @@ public class CatalogueActivity extends AppCompatActivity
             fragmentTransaction.commit();
             // Handle the camera action
         } else if (id == R.id.settings) {
-            //Set the fragment initially
             SettingsFragment fragment = new SettingsFragment ();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -121,6 +119,12 @@ public class CatalogueActivity extends AppCompatActivity
 
         } else if (id == R.id.logOut) {
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
+        } else if (id == R.id.basket) {
+            BasketFragment fragment = new BasketFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
