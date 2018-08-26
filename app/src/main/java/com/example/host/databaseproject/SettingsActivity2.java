@@ -82,123 +82,123 @@ public class SettingsActivity2 extends AppCompatActivity implements Datable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings2);
-        changeAvatarButton = findViewById(R.id.changeAvatarButton);
-        changePasswordButton = findViewById(R.id.changePasswordSettingsButton);
-
-
-
-        //avatarView = findViewById(R.id.settingsAvatarView);
-        nameView = findViewById(R.id.nameSettingsView);
-        surnameView = findViewById(R.id.surnameSettingsView);
-        fatherNameView = findViewById(R.id.fatherNameSettingsView);
-        emailView = findViewById(R.id.emailSettingsView);
-
-        database = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-        storage = FirebaseStorage.getInstance();
-
-        //fix#1
-        userReference = database.getReference("Users");
-        storageReference = storage.getReference(currentUser.getUid());
-
-        //Смена аватара
-        //TODO
-        //100% Будут траблы с работой
-        changeAvatarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CustomDialogFragment dialogFragment = new CustomDialogFragment();
-                dialogFragment.show(getSupportFragmentManager(), "custom");
-            }
-        });
-
-        //Смена пароля
-        changePasswordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SettingsActivity2.this, ChangePasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //
-        //Дергаем данные пользователя и выводим их куда-то там
-        //
-        //Данные-строки
-        userReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                name = dataSnapshot.child("name").getValue(String.class);
-                surname = dataSnapshot.child("surname").getValue(String.class);
-                fatherName = dataSnapshot.child("fatherName").getValue(String.class);
-                email = dataSnapshot.child("email").getValue(String.class);
-
-                nameView.setText(name);
-                surnameView.setText(surname);
-                fatherNameView.setText(fatherName);
-                emailView.setText(email);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(SettingsActivity2.this, "Ошибка при считывании данных пользоветеля", Toast.LENGTH_LONG);
-            }
-        });
-
-
-        //Аватарка
-
-        //Glide.with(this).load(storageReference.child("avatar.png").getDownloadUrl()).into(changeAvatarButton);
-        storageReference.child("avatar.png").getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if(task.isSuccessful()){
-                    Glide.with(SettingsActivity2.this).load(task.getResult()).into(changeAvatarButton);
-                }
-                else{
-
-                }
-            }
-        });
-
-
-//        File tmpFile = null;
-//        try {
-//            tmpFile = File.createTempFile("tmpAvatar", "png");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        storageReference.getFile(tmpFile).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
-//                if(task.isSuccessful()){
-//                    BitmapFactory.Options options = new BitmapFactory.Options();
-//                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-//                    Bitmap b = BitmapFactory.decodeFile(tmpFile.getPath().toString(), options);
+//        changeAvatarButton = findViewById(R.id.changeAvatarButton);
+//        changePasswordButton = findViewById(R.id.changePasswordSettingsButton);
 //
-//                    changeAvatarButton.setImageBitmap(b);
+//
+//
+//        //avatarView = findViewById(R.id.settingsAvatarView);
+//        nameView = findViewById(R.id.nameSettingsView);
+//        surnameView = findViewById(R.id.surnameSettingsView);
+//        fatherNameView = findViewById(R.id.fatherNameSettingsView);
+//        emailView = findViewById(R.id.emailSettingsView);
+//
+//        database = FirebaseDatabase.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
+//        currentUser = mAuth.getCurrentUser();
+//        storage = FirebaseStorage.getInstance();
+//
+//        //fix#1
+//        userReference = database.getReference("Users");
+//        storageReference = storage.getReference(currentUser.getUid());
+//
+//        //Смена аватара
+//        //TODO
+//        //100% Будут траблы с работой
+//        changeAvatarButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                CustomDialogFragment dialogFragment = new CustomDialogFragment();
+//                dialogFragment.show(getSupportFragmentManager(), "custom");
+//            }
+//        });
+//
+//        //Смена пароля
+//        changePasswordButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SettingsActivity2.this, ChangePasswordActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        //
+//        //Дергаем данные пользователя и выводим их куда-то там
+//        //
+//        //Данные-строки
+//        userReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                name = dataSnapshot.child("name").getValue(String.class);
+//                surname = dataSnapshot.child("surname").getValue(String.class);
+//                fatherName = dataSnapshot.child("fatherName").getValue(String.class);
+//                email = dataSnapshot.child("email").getValue(String.class);
+//
+//                nameView.setText(name);
+//                surnameView.setText(surname);
+//                fatherNameView.setText(fatherName);
+//                emailView.setText(email);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Toast.makeText(SettingsActivity2.this, "Ошибка при считывании данных пользоветеля", Toast.LENGTH_LONG);
+//            }
+//        });
+//
+//
+//        //Аватарка
+//
+//        //Glide.with(this).load(storageReference.child("avatar.png").getDownloadUrl()).into(changeAvatarButton);
+//        storageReference.child("avatar.png").getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Uri> task) {
+//                if(task.isSuccessful()){
+//                    Glide.with(SettingsActivity2.this).load(task.getResult()).into(changeAvatarButton);
 //                }
 //                else{
-//                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
+//
 //                }
 //            }
 //        });
-//         storageReference.child("avatar.png").getStream().addOnCompleteListener(new OnCompleteListener<StreamDownloadTask.TaskSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<StreamDownloadTask.TaskSnapshot> task) {
-//                if(task.isSuccessful()){
-//                    Bitmap b;
-//                    b = BitmapFactory.decodeStream(task.getResult().getStream());
-//                    changeAvatarButton.setImageBitmap(b);
-//                }
-//                else{
-//                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
-//                }
-//            }
 //
-//        });
+//
+////        File tmpFile = null;
+////        try {
+////            tmpFile = File.createTempFile("tmpAvatar", "png");
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+////        storageReference.getFile(tmpFile).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+////            @Override
+////            public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+////                if(task.isSuccessful()){
+////                    BitmapFactory.Options options = new BitmapFactory.Options();
+////                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+////                    Bitmap b = BitmapFactory.decodeFile(tmpFile.getPath().toString(), options);
+////
+////                    changeAvatarButton.setImageBitmap(b);
+////                }
+////                else{
+////                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
+////                }
+////            }
+////        });
+////         storageReference.child("avatar.png").getStream().addOnCompleteListener(new OnCompleteListener<StreamDownloadTask.TaskSnapshot>() {
+////            @Override
+////            public void onComplete(@NonNull Task<StreamDownloadTask.TaskSnapshot> task) {
+////                if(task.isSuccessful()){
+////                    Bitmap b;
+////                    b = BitmapFactory.decodeStream(task.getResult().getStream());
+////                    changeAvatarButton.setImageBitmap(b);
+////                }
+////                else{
+////                    Toast.makeText(SettingsActivity2.this, "Ошибка при загрузке изображения из базы", Toast.LENGTH_LONG);
+////                }
+////            }
+////
+////        });
 
     }
 
