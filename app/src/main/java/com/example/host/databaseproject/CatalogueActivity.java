@@ -102,6 +102,7 @@ public class CatalogueActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        String title = "";
 
         if (id == R.id.katalog) {
             CatalogueFragment fragment = new CatalogueFragment();
@@ -109,14 +110,14 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            // Handle the camera action
+            title = "Каталог";
         } else if (id == R.id.settings) {
             SettingsFragment fragment = new SettingsFragment ();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-
+            title = "Настройки";
         } else if (id == R.id.logOut) {
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         } else if (id == R.id.basket) {
@@ -125,10 +126,13 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+            title = "Корзина";
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        getSupportActionBar().setTitle(title);
         return true;
     }
 }
