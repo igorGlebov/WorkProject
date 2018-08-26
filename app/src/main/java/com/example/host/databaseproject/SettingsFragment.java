@@ -96,8 +96,6 @@ public class SettingsFragment extends Fragment implements Datable {
         changeAvatarButton = view.findViewById(R.id.changeAvatarButton);
         changePasswordButton = view.findViewById(R.id.changePasswordSettingsButton);
 
-
-
         //avatarView = findViewById(R.id.settingsAvatarView);
         nameView = view.findViewById(R.id.nameSettingsView);
         surnameView = view.findViewById(R.id.surnameSettingsView);
@@ -114,14 +112,21 @@ public class SettingsFragment extends Fragment implements Datable {
         storageReference = storage.getReference(currentUser.getUid());
 
         //Смена аватара
-        //TODO
         //100% Будут траблы с работой
         changeAvatarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 //dialogFragment.show(getSupportFragmentManager(), "custom");
-                dialogFragment.show(getChildFragmentManager(), "custom");
+                //dialogFragment.show(getChildFragmentManager(), "custom");
+
+                //FragmentManager fm = getActivity().();
+
+                CustomDialogFragment dialogFragment = new CustomDialogFragment();
+                dialogFragment.show(getActivity().getSupportFragmentManager(), "custom");
+
+
+
+
 
             }
         });
@@ -171,6 +176,7 @@ public class SettingsFragment extends Fragment implements Datable {
                     Glide.with(SettingsFragment.this).load(task.getResult()).into(changeAvatarButton);
                 }
                 else{
+                    Toast.makeText(getActivity(), "Ошибка при загрузке аватара из базы. Проверьте соединение.", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -194,6 +200,7 @@ public class SettingsFragment extends Fragment implements Datable {
     @Override
     public void onStop() {
         super.onStop();
+
         if(!nameView.getText().toString().isEmpty() && !nameView.getText().toString().equals(name)){
             userReference.child(currentUser.getUid()).child("name").setValue(nameView.getText().toString());
         }
@@ -208,30 +215,6 @@ public class SettingsFragment extends Fragment implements Datable {
             currentUser.updateEmail(emailView.getText().toString());
         }
     }
-    //
-
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser)
-//    {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        if (this.isVisible())
-//        {
-//            if(!nameView.getText().toString().isEmpty() && !nameView.getText().toString().equals(name)){
-//                userReference.child(currentUser.getUid()).child("name").setValue(nameView.getText().toString());
-//            }
-//            if(!surnameView.getText().toString().isEmpty() && !surnameView.getText().toString().equals(surname)){
-//                userReference.child(currentUser.getUid()).child("surname").setValue(surnameView.getText().toString());
-//            }
-//            if(!fatherNameView.getText().toString().isEmpty() && !fatherNameView.getText().toString().equals(fatherName)){
-//                userReference.child(currentUser.getUid()).child("fatherName").setValue(fatherNameView.getText().toString());
-//            }
-//            if(!emailView.getText().toString().isEmpty() && !emailView.getText().toString().equals(email)){
-//                userReference.child(currentUser.getUid()).child("email").setValue(emailView.getText().toString());
-//                currentUser.updateEmail(emailView.getText().toString());
-//            }
-//        }
-//    }
-
 
     //Копипаста из ЭДД АВАТАРа
     @Override
@@ -246,11 +229,7 @@ public class SettingsFragment extends Fragment implements Datable {
         if (requestCode == CAMERA_REQUEST && resultCode == getActivity().RESULT_OK) {
             // Фотка сделана, извлекаем картинку
             Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-            //user.setAvatar(thumbnailBitmap);//Не ебу, что я тут понаделал. Уебет? Не должно
             changeAvatarInStorage(thumbnailBitmap);
-
-
-            //
 
             changeAvatarButton.setImageBitmap(thumbnailBitmap);
         }
@@ -273,7 +252,6 @@ public class SettingsFragment extends Fragment implements Datable {
                     }
             }
         }
-        //addUserToDatabase();//Добавим пользователя в базу
 
     }
 

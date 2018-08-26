@@ -49,45 +49,54 @@ public class ChangePasswordActivity extends AppCompatActivity {
         applyNewPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), oldPasswordText.getText().toString());
-                user.reauthenticate(credential).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ChangePasswordActivity.this, "Старый пароль введен неверно", Toast.LENGTH_LONG).show();
-                        //startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity2.class));
+                if(oldPasswordText.getText().toString().isEmpty() || newPasswordText.getText().toString().isEmpty() || newPasswordText2.getText().toString().isEmpty()){
+                    Toast.makeText(ChangePasswordActivity.this, "Заполните поля для продолжения.", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
+
+                else {
+                    AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), oldPasswordText.getText().toString());
+                    user.reauthenticate(credential).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ChangePasswordActivity.this, "Старый пароль введен неверно", Toast.LENGTH_LONG).show();
+                            //startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity2.class));
+
+                            return;
+                        }
+                    });
+
+                    if(!Check.comparePassword(newPasswordText.getText().toString(), newPasswordText2.getText().toString())){
+                        //startActivity(new Intent(ChangePasswordActivity.this, AddAvatarActivity.class));
+                        Toast.makeText(ChangePasswordActivity.this, "Новые пароли не совпадают", Toast.LENGTH_LONG).show();
+                        return;
+
+                    }
+
+                    if(!Check.checkPassword(newPasswordText.getText().toString())) {
+                        //startActivity(new Intent(ChangePasswordActivity.this, CatalogueActivity_V2.class));
+
+                        Toast.makeText(ChangePasswordActivity.this, "Пароль слишком простой", Toast.LENGTH_LONG).show();
                         return;
                     }
-                });
 
-                if(!Check.comparePassword(newPasswordText.getText().toString(), newPasswordText2.getText().toString())){
-                    //startActivity(new Intent(ChangePasswordActivity.this, AddAvatarActivity.class));
-                    Toast.makeText(ChangePasswordActivity.this, "Новые пароли не совпадают", Toast.LENGTH_LONG).show();
-                    return;
+                    user.updatePassword(newPasswordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(ChangePasswordActivity.this, "Пароль был изменен успешно!", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(ChangePasswordActivity.this, CatalogueActivity.class));
+
+                            }
+                            else{
+                                Toast.makeText(ChangePasswordActivity.this, "Не удалось сменить пароль. Проверьте соединение и повторите попытку", Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                    });
 
                 }
-
-                if(!Check.checkPassword(newPasswordText.getText().toString())) {
-                    //startActivity(new Intent(ChangePasswordActivity.this, CatalogueActivity_V2.class));
-
-                    Toast.makeText(ChangePasswordActivity.this, "Пароль слишком простой", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                user.updatePassword(newPasswordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(ChangePasswordActivity.this, "Пароль был изменен успешно!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity2.class));
-
-                        }
-                        else{
-                            Toast.makeText(ChangePasswordActivity.this, "Не удалось сменить пароль. Проверьте соединение и повторите попытку", Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                });
 
             }
         });

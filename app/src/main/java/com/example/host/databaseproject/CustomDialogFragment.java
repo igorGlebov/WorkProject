@@ -22,7 +22,7 @@ public class CustomDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         String[] actions = {"Сделать фото", "Выбрать фото из галереи"};
         return builder
-                .setTitle("Диалоговое окно")
+                .setTitle("Выберите метод добавления аватара:")
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setItems(actions, new DialogInterface.OnClickListener() {
                     @Override

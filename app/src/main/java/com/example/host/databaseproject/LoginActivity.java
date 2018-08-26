@@ -62,7 +62,12 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailTextRegister.getText().toString();
         String password = passwordTextRegister.getText().toString();
 
-        if(!Check.checkEmail(email)){
+        if(email.isEmpty() || password.isEmpty()){
+            Toast.makeText(LoginActivity.this, "Заполните поля для входа и повторите попытку.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        else if(!Check.checkEmail(email)){
             Toast.makeText(LoginActivity.this, "Неверный E-mail", Toast.LENGTH_LONG).show();
             return;
         }
