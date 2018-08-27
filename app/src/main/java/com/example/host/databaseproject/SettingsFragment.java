@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +44,7 @@ import java.io.IOException;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SettingsFragment extends Fragment implements Datable {
+public class SettingsFragment extends Fragment  {
 
 
     private FirebaseUser currentUser;
@@ -123,10 +124,6 @@ public class SettingsFragment extends Fragment implements Datable {
 
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getActivity().getSupportFragmentManager(), "custom");
-
-
-
-
 
             }
         });
@@ -217,11 +214,11 @@ public class SettingsFragment extends Fragment implements Datable {
     }
 
     //Копипаста из ЭДД АВАТАРа
-    @Override
-    public void openCamera() {
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_REQUEST);
-    }
+//    @Override
+//    public void openCamera() {
+//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
         super.onActivityResult(requestCode, resultCode, data);
@@ -229,7 +226,7 @@ public class SettingsFragment extends Fragment implements Datable {
         if (requestCode == CAMERA_REQUEST && resultCode == getActivity().RESULT_OK) {
             // Фотка сделана, извлекаем картинку
             Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-            changeAvatarInStorage(thumbnailBitmap);
+//            changeAvatarInStorage(thumbnailBitmap);
 
             changeAvatarButton.setImageBitmap(thumbnailBitmap);
         }
@@ -246,7 +243,7 @@ public class SettingsFragment extends Fragment implements Datable {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        changeAvatarInStorage(bitmap);
+//                        changeAvatarInStorage(bitmap);
                         changeAvatarButton.setImageBitmap(bitmap);
 
                     }
@@ -255,30 +252,30 @@ public class SettingsFragment extends Fragment implements Datable {
 
     }
 
-    @Override
-    public void openGallery() {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
-    }
-    ///////
-
-    void changeAvatarInStorage(Bitmap avatar){
-        storageReference.child("avatar.png").delete();
-        ByteArrayOutputStream avatarBytesStream = new ByteArrayOutputStream();
-        avatar.compress(Bitmap.CompressFormat.PNG, 100, avatarBytesStream);
-        byte[] avatarBytes = avatarBytesStream.toByteArray();
-        storageReference.child(currentUser.getUid());
-        StorageReference newRef = storageReference.child("avatar.png");
-        UploadTask uploadTask = newRef.putBytes(avatarBytes);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), "Что-то не так с загрузкой нового изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
+//    @Override
+//    public void openGallery() {
+//        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+//        photoPickerIntent.setType("image/*");
+//        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
+//    }
+//    ///////
+//
+//    void changeAvatarInStorage(Bitmap avatar){
+//        storageReference.child("avatar.png").delete();
+//        ByteArrayOutputStream avatarBytesStream = new ByteArrayOutputStream();
+//        avatar.compress(Bitmap.CompressFormat.PNG, 100, avatarBytesStream);
+//        byte[] avatarBytes = avatarBytesStream.toByteArray();
+//        storageReference.child(currentUser.getUid());
+//        StorageReference newRef = storageReference.child("avatar.png");
+//        UploadTask uploadTask = newRef.putBytes(avatarBytes);
+//        uploadTask.addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(getActivity(), "Что-то не так с загрузкой нового изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//    }
 
 
 }
