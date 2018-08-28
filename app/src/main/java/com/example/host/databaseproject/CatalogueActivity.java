@@ -127,6 +127,13 @@ public class CatalogueActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
             title = "Корзина";
+        } else if (id == R.id.orderHistory) {
+            OrderHistoryFragment fragment = new OrderHistoryFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            title = "История заказов";
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

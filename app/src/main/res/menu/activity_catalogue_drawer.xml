@@ -9,13 +9,18 @@
             android:id="@+id/katalog"
             android:title="Каталог"
             android:checked="true"/>
-        <item
-            android:id="@+id/settings"
-            android:title="Настройки" />
 
         <item
             android:id="@+id/basket"
             android:title="Корзина" />
+
+        <item
+            android:id="@+id/orderHistory"
+            android:title="История заказов" />
+
+        <item
+            android:id="@+id/settings"
+            android:title="Настройки" />
 
         <item
             android:id="@+id/logOut"
