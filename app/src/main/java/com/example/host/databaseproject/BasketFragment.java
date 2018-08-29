@@ -30,6 +30,18 @@ public class BasketFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_basket, container, false);
 
+        ListView listView = rootView.findViewById(R.id.listViewBasket);
+        Bundle bundle = this.getArguments();
+        String[] strings = null;
+        if(bundle != null){
+            strings = bundle.getStringArray("key");
+        }
+        if(strings != null){
+            ArrayAdapter<String> adapter= new ArrayAdapter<String>(this.getContext(),
+                    android.R.layout.simple_list_item_multiple_choice, strings);
+
+            listView.setAdapter(adapter);
+        }
         // Inflate the layout for this fragment
         return rootView;
     }

@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,11 +37,15 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import java.util.ArrayList;
+
 public class CatalogueActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Datable {
+        implements NavigationView.OnNavigationItemSelectedListener, Datable , CatalogueFragment.OnFragmentInteractionListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+    ListView listView;
+    String[] strings;
 
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
@@ -227,12 +233,15 @@ public class CatalogueActivity extends AppCompatActivity
         } else if (id == R.id.logOut) {
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         } else if (id == R.id.basket) {
-            BasketFragment fragment = new BasketFragment();
+            BasketFragment basketFragment = new BasketFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, basketFragment);
             fragmentTransaction.commit();
             title = "Корзина";
+            Bundle bundle = new Bundle();
+            bundle.putStringArray("key", strings);
+            basketFragment.setArguments(bundle);
         } else if (id == R.id.orderHistory) {
             OrderHistoryFragment fragment = new OrderHistoryFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -247,6 +256,11 @@ public class CatalogueActivity extends AppCompatActivity
 
         getSupportActionBar().setTitle(title);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(String[] strings) {
+        this.strings = strings;
     }
 }
 
