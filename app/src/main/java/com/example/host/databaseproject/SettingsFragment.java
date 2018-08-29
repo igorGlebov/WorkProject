@@ -44,7 +44,7 @@ import java.io.IOException;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SettingsFragment extends Fragment  {
+public class SettingsFragment extends Fragment   {
 
 
     private FirebaseUser currentUser;
@@ -62,6 +62,7 @@ public class SettingsFragment extends Fragment  {
 
 
     //For avatar change
+    private CustomDialogFragment customDialogFragment;
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     private ImageView imageAvatar; // фотка
@@ -94,6 +95,7 @@ public class SettingsFragment extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_settings,
                 container, false);
 
+
         changeAvatarButton = view.findViewById(R.id.changeAvatarButton);
         changePasswordButton = view.findViewById(R.id.changePasswordSettingsButton);
 
@@ -123,7 +125,13 @@ public class SettingsFragment extends Fragment  {
                 //FragmentManager fm = getActivity().();
 
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
-                dialogFragment.show(getActivity().getSupportFragmentManager(), "custom");
+                //dialogFragment.setTargetFragment(SettingsFragment.this, 1);
+                dialogFragment.show(getFragmentManager(), "custom");
+
+
+
+
+
 
             }
         });
@@ -188,11 +196,18 @@ public class SettingsFragment extends Fragment  {
         // Inflate the layout for this fragment
 
         //return inflater.inflate(R.layout.fragment_settings, container, false);
+
+
+        //storageReference.child("avatar.png").
+
         return view;
 
 
 
     }
+
+
+
 
     @Override
     public void onStop() {
@@ -219,63 +234,63 @@ public class SettingsFragment extends Fragment  {
 //        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //        startActivityForResult(cameraIntent, CAMERA_REQUEST);
 //    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == CAMERA_REQUEST && resultCode == getActivity().RESULT_OK) {
-            // Фотка сделана, извлекаем картинку
-            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-//            changeAvatarInStorage(thumbnailBitmap);
-
-            changeAvatarButton.setImageBitmap(thumbnailBitmap);
-        }
-        else{
-            Bitmap bitmap = null;
-
-            switch(requestCode) {
-                case GALLERY_REQUEST:
-                    if(resultCode == getActivity().RESULT_OK){
-                        Uri selectedImage = data.getData();
-                        try {
-                            //ALERT CAN BE AN OSHIBKE HERE
-                            bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-//                        changeAvatarInStorage(bitmap);
-                        changeAvatarButton.setImageBitmap(bitmap);
-
-                    }
-            }
-        }
-
-    }
-
-//    @Override
+//
+//        @Override
 //    public void openGallery() {
 //        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
 //        photoPickerIntent.setType("image/*");
 //        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
 //    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
+        super.onActivityResult(requestCode, resultCode, data);
+
+//        if (requestCode == CAMERA_REQUEST && resultCode == getActivity().RESULT_OK) {
+////            // Фотка сделана, извлекаем картинку
+////            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+////            changeAvatarInStorage(thumbnailBitmap);
+////
+////            changeAvatarButton.setImageBitmap(thumbnailBitmap);
+////        }
+////        else{
+////            Bitmap bitmap = null;
+////
+////            switch(requestCode) {
+////                case GALLERY_REQUEST:
+////                    if(resultCode == getActivity().RESULT_OK){
+////                        Uri selectedImage = data.getData();
+////                        try {
+////                            //ALERT CAN BE AN OSHIBKE HERE
+////                            bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
+////                        } catch (IOException e) {
+////                            e.printStackTrace();
+////                        }
+////                        changeAvatarInStorage(bitmap);
+////                        changeAvatarButton.setImageBitmap(bitmap);
+////
+////                    }
+////            }
+////        }
+
+        storageReference.child("avatar.png").getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if(task.isSuccessful()){
+                    Glide.with(SettingsFragment.this).load(task.getResult()).into(changeAvatarButton);
+                }
+                else{
+                    Toast.makeText(getActivity(), "Ошибка при загрузке аватара из базы. Проверьте соединение.", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
+    }
+
+
 //    ///////
 //
-//    void changeAvatarInStorage(Bitmap avatar){
-//        storageReference.child("avatar.png").delete();
-//        ByteArrayOutputStream avatarBytesStream = new ByteArrayOutputStream();
-//        avatar.compress(Bitmap.CompressFormat.PNG, 100, avatarBytesStream);
-//        byte[] avatarBytes = avatarBytesStream.toByteArray();
-//        storageReference.child(currentUser.getUid());
-//        StorageReference newRef = storageReference.child("avatar.png");
-//        UploadTask uploadTask = newRef.putBytes(avatarBytes);
-//        uploadTask.addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(getActivity(), "Что-то не так с загрузкой нового изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-//    }
+
 
 
 }

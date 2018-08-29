@@ -98,10 +98,19 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     }
 
-    @Override
+    //@Override
     public void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+
+    }
+
+    //@Override
+    public void openGallery() {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
@@ -133,12 +142,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     }
 
-    @Override
-    public void openGallery() {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
-    }
+
 
 
     private void addUserToDatabase(){
@@ -160,7 +164,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AddAvatarActivity.this, "Что-то не так с загрузкой изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG);
+                Toast.makeText(AddAvatarActivity.this, "Что-то не так с загрузкой изображения в базу. Проверьте соединение и повторите попытку.", Toast.LENGTH_LONG).show();
 
             }
         });
