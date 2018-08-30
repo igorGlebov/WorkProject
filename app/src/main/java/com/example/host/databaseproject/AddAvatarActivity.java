@@ -85,7 +85,6 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
             public void onClick(View view) {
                 Bitmap bitmap = ((BitmapDrawable)imageAvatar.getDrawable()).getBitmap();
                 user.setAvatar(bitmap);
-                //addUserToDatabase();//Добавим пользователя в базу
                 addUserToDatabase();//Добавим пользователя в базу
 
                 startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));

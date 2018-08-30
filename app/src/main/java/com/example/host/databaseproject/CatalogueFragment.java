@@ -38,15 +38,6 @@ public class CatalogueFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_catalogue, container, false);
 
-//        final Button mainButton = (Button) rootView.findViewById(R.id.main_button);
-//
-//        mainButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                mainButton.setBackgroundColor(getContext().getResources().getColor(R.color.colorAccent));
-//            }
-//        });
         listView = rootView.findViewById(R.id.list);
         strings = new String[3];
         strings[0] = "Товар 1";
@@ -62,8 +53,7 @@ public class CatalogueFragment extends Fragment {
                 updateDetail();
             }
         });
-        // Inflate the layout for this fragment
-        //updateDetail();
+
         return rootView;
     }
 

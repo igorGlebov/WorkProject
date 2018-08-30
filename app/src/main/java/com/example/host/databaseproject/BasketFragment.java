@@ -42,7 +42,7 @@ public class BasketFragment extends Fragment {
 
             listView.setAdapter(adapter);
         }
-        // Inflate the layout for this fragment
+
         return rootView;
     }
 

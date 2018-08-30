@@ -99,8 +99,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        //user = new User(email, name, surname, fatherName);
-
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -118,19 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-        //addUserToDatabase(new User(email, name, surname, fatherName, mAuth.getCurrentUser().getUid()));
-
     }
-
-//    private void addUserToDatabase(User user){
-//        DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
-//        userRef.setValue(user);
-//
-//    }
-
-
-
 }
 
 

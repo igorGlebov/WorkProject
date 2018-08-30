@@ -26,26 +26,17 @@ public class CustomDialogFragment extends DialogFragment {
     private StorageReference storageReference;
     private FirebaseUser currentUser;
 
-
-
-
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
         datable = (Datable) getActivity();
     }
 
-
-
-
-
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference().child(currentUser.getUid()).child("avatar.png");
-        //datable = (Datable)getContext();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         String[] actions = {"Сделать фото", "Выбрать фото из галереи"};
         return builder
@@ -65,22 +56,4 @@ public class CustomDialogFragment extends DialogFragment {
                 })
                 .create();
     }
-
-
-//    public void openCamera() {
-//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(cameraIntent, CAMERA_REQUEST);
-//
-//
-//    }
-//
-//    //@Override
-//    public void openGallery() {
-//        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-//        photoPickerIntent.setType("image/*");
-//        startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
-//    }
-
-
-
 }
