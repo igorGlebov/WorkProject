@@ -26,6 +26,7 @@ public class CatalogueFragment extends Fragment {
     private OnFragmentInteractionListener mListener; // для обращения к активити
     ListView listView;
     String[] strings;
+    static int[] checked;
 
     public CatalogueFragment() {
         // Required empty public constructor
@@ -94,12 +95,13 @@ public class CatalogueFragment extends Fragment {
                 checkedCount++;
             }
         }
-
+        checked = new int[checkedCount];
         String[] strs = new String[checkedCount];
         int y = 0;
-        for(int i = 0; i < checkedCount;i++){
+        for(int i = 0; i < count;i++){
             if(checkedItemPosition.get(i)){
                 strs[y] = strings[i];
+                checked[y] = i;
                 y++;
             }
         }

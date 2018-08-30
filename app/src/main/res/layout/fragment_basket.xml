@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BasketFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,10 +11,17 @@
     <ListView
         android:id="@+id/listViewBasket"
         android:layout_width="match_parent"
-        android:layout_height="516dp"
+        android:layout_height="467dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="51dp"
         android:choiceMode="multipleChoice" />
+
+    <Button
+        android:id="@+id/buttonPlaceYourOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оформить заказ"
+         />
 
 </FrameLayout>
