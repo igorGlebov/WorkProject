@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_catalogue">Каталог</string>
+    <string name="title_basket">Корзина</string>
+    <string name="title_order_history">История заказов</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_output">Выход</string>
+</resources>

@@ -21,7 +21,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="169dp"
             android:background="@android:color/background_light"
-            android:text="Изменить пароль"
+            android:text="@string/change_password"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

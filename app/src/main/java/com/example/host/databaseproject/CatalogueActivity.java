@@ -59,7 +59,7 @@ public class CatalogueActivity extends AppCompatActivity
 
 
     //Datable realization
-    ////////
+
     @Override
     public void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -108,7 +108,6 @@ public class CatalogueActivity extends AppCompatActivity
 
     }
 
-
     void changeAvatarInStorage(Bitmap avatar){
         storageReference.child("avatar.png").delete();
         ByteArrayOutputStream avatarBytesStream = new ByteArrayOutputStream();
@@ -125,9 +124,6 @@ public class CatalogueActivity extends AppCompatActivity
             }
         });
     }
-    /////////
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,16 +160,10 @@ public class CatalogueActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        //navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        //How to change elements in the header programatically
-//        View headerView = navigationView.getHeaderView(0);
-//        TextView emailText = (TextView) headerView.findViewById(R.id.email);
-//        emailText.setText("newemail@email.com");
-
-        //navigationView.setNavigationItemSelectedListener(this);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportActionBar().setTitle(R.string.title_catalogue);
     }
 
     @Override
@@ -214,7 +204,7 @@ public class CatalogueActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        String title = "";
+        int title = R.string.title_catalogue;
 
         if (id == R.id.katalog) {
             CatalogueFragment fragment = new CatalogueFragment();
@@ -222,14 +212,14 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            title = "Каталог";
+            title = R.string.title_catalogue;
         } else if (id == R.id.settings) {
             SettingsFragment fragment = new SettingsFragment ();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            title = "Настройки";
+            title = R.string.title_settings;
         } else if (id == R.id.logOut) {
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         } else if (id == R.id.basket) {
@@ -238,7 +228,7 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, basketFragment);
             fragmentTransaction.commit();
-            title = "Корзина";
+            title = R.string.title_basket;
             Bundle bundle = new Bundle();
             bundle.putStringArray("key", strings);
             basketFragment.setArguments(bundle);
@@ -248,7 +238,7 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            title = "История заказов";
+            title = R.string.title_order_history;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

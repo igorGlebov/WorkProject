@@ -7,24 +7,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/katalog"
-            android:title="Каталог"
+            android:title="@string/title_catalogue"
             android:checked="true"/>
 
         <item
             android:id="@+id/basket"
-            android:title="Корзина" />
+            android:title="@string/title_basket" />
 
         <item
             android:id="@+id/orderHistory"
-            android:title="История заказов" />
+            android:title="@string/title_order_history" />
 
         <item
             android:id="@+id/settings"
-            android:title="Настройки" />
+            android:title="@string/title_settings" />
 
         <item
             android:id="@+id/logOut"
-            android:title="Выход" />
+            android:title="@string/title_output" />
 
     </group>
 

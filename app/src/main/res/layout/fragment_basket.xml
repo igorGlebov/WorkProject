@@ -21,7 +21,6 @@
         android:id="@+id/buttonPlaceYourOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Оформить заказ"
-         />
+        android:text="@string/place_your_order" />
 
 </FrameLayout>
