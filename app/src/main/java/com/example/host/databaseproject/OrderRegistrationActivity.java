@@ -1,8 +1,10 @@
 package com.example.host.databaseproject;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.os.Environment;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +24,9 @@ public class OrderRegistrationActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_registration);
-        signatureView = (SignatureView) findViewById(R.id.signature_view);
+        bitmap = (Bitmap) getLastCustomNonConfigurationInstance();
+        signatureView =  findViewById(R.id.signature_view);
+        signatureView.setBitmap(bitmap);
         clear = (Button) findViewById(R.id.clear);
         save = (Button) findViewById(R.id.save);
         clear.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +62,13 @@ public class OrderRegistrationActivity extends AppCompatActivity {
             e1.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
+        super.onRetainCustomNonConfigurationInstance();
+        bitmap = signatureView.getSignatureBitmap();
+        return bitmap;
     }
 }
 
