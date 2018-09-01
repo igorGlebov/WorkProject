@@ -20,10 +20,10 @@
     <Button android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/clear"
-        android:text="clear"/>
+        android:text="@string/clean"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/save"
-        android:text="save"/>
+        android:text="@string/save"/>
 </LinearLayout>

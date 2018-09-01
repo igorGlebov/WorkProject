@@ -8,8 +8,26 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_catalogue__v2">CatalogueActivity_V2</string>
+
     <string name="change_password">Изменить пароль</string>
-    <string name="place_your_order">Изменить пароль</string>
+    <string name="place_your_order">Оформить заказ</string>
+    <string name="to_add_avatar">Добавить аватар</string>
+    <string name="resume">Продолжить</string>
+    <string name="apply_changes">Применить изменения</string>
+    <string name="old_password">Старый пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="input">Вход</string>
+    <string name="registration">Регистрация</string>
+    <string name="email">E-mail</string>
+    <string name="password">Пароль</string>
+    <string name="clean">Очистить</string>
+    <string name="save">Сохранить</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="patronymic">Отчество</string>
+    <string name="register">Зарегистрироваться</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
