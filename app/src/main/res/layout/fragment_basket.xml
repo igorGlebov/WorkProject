@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="467dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="51dp"
+        android:layout_centerVertical="true"
         android:choiceMode="multipleChoice" />
 
     <Button
         android:id="@+id/buttonPlaceYourOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/place_your_order" />
+        android:text="@string/place_your_order"
+        android:layout_below="@+id/listViewBasket"/>
 
-</FrameLayout>
+</RelativeLayout>
