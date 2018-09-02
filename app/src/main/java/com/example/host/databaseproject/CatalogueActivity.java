@@ -57,6 +57,7 @@ public class CatalogueActivity extends AppCompatActivity
 
     private ImageButton changeAvatarButton;
 
+    SettingsFragment settingsFragment;
 
     //Datable realization
 
@@ -123,6 +124,8 @@ public class CatalogueActivity extends AppCompatActivity
 
             }
         });
+
+        settingsFragment.changeAvatar(avatar); // изменение аватарки в настройках
     }
 
     @Override
@@ -134,17 +137,17 @@ public class CatalogueActivity extends AppCompatActivity
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference(currentUser.getUid());
 
-        //Set the fragment initially
+        //Фрагмент по умолчанию
         CatalogueFragment fragment = new CatalogueFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,14 +156,14 @@ public class CatalogueActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (findViewById(R.id.drawer_layout));
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportActionBar().setTitle(R.string.title_catalogue);
@@ -168,7 +171,7 @@ public class CatalogueActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -219,6 +222,7 @@ public class CatalogueActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+            settingsFragment = fragment;
             title = R.string.title_settings;
         } else if (id == R.id.logOut) {
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
@@ -241,10 +245,12 @@ public class CatalogueActivity extends AppCompatActivity
             title = R.string.title_order_history;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        getSupportActionBar().setTitle(title);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
         return true;
     }
 

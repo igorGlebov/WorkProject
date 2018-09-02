@@ -56,7 +56,7 @@ public class SettingsFragment extends Fragment   {
     private DatabaseReference userReference;
 
 
-    private Button changePasswordButton;
+    Button changePasswordButton;
     private ImageButton changeAvatarButton;
 
 
@@ -85,7 +85,9 @@ public class SettingsFragment extends Fragment   {
 
     }
 
-
+    public void changeAvatar(Bitmap bitmap){ // метод для изменения аватара в меню настроек
+        changeAvatarButton.setImageBitmap(bitmap);
+    }
 
 
     @Override
