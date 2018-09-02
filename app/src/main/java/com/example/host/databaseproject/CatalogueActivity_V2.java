@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class CatalogueActivity_V2 extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -230,7 +230,7 @@ public class CatalogueActivity extends AppCompatActivity
             fragmentTransaction.commit();
             title = R.string.title_basket;
             Bundle bundle = new Bundle();
-            bundle.putStringArray("key", strings);
+            bundle.putStringArray(BasketFragment.EXTRA_KEY, strings);
             basketFragment.setArguments(bundle);
         } else if (id == R.id.orderHistory) {
             OrderHistoryFragment fragment = new OrderHistoryFragment();

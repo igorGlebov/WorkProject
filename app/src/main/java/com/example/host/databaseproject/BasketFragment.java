@@ -20,6 +20,8 @@ import java.util.ArrayList;
  */
 public class BasketFragment extends Fragment {
 
+    public static final String EXTRA_KEY = "key";
+
     public BasketFragment() {
         // Required empty public constructor
     }
@@ -34,7 +36,7 @@ public class BasketFragment extends Fragment {
         Bundle bundle = this.getArguments();
         String[] strings = null;
         if(bundle != null){
-            strings = bundle.getStringArray("key");
+            strings = bundle.getStringArray(EXTRA_KEY);
         }
         if(strings != null){
             ArrayAdapter<String> adapter= new ArrayAdapter<String>(this.getContext(),
