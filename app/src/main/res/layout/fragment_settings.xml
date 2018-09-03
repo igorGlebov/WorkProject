@@ -9,9 +9,10 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="517dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp">
 
         <Button
             android:id="@+id/changePasswordSettingsButton"
@@ -46,7 +47,7 @@
 
         <EditText
             android:id="@+id/nameSettingsView"
-            android:layout_width="wrap_content"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
@@ -63,7 +64,7 @@
 
         <EditText
             android:id="@+id/fatherNameSettingsView"
-            android:layout_width="wrap_content"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/changeAvatarButton"
             android:layout_alignStart="@+id/nameSettingsView"
@@ -71,14 +72,14 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.905"
+            app:layout_constraintHorizontal_bias="0.913"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.228" />
+            app:layout_constraintVertical_bias="0.257" />
 
         <EditText
             android:id="@+id/surnameSettingsView"
-            android:layout_width="wrap_content"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/nameSettingsView"
@@ -87,7 +88,7 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.905"
+            app:layout_constraintHorizontal_bias="0.913"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
@@ -106,6 +107,6 @@
             app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.341" />
+            app:layout_constraintVertical_bias="0.383" />
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
