@@ -17,12 +17,23 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
     Button registerButtonMain; // кнопки для регистрации в авторизации
     Button signupButtonMain; // кнопка
 
     private EditText emailTextRegister;
     private EditText passwordTextRegister;
+
+
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        //FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +43,24 @@ public class LoginActivity extends AppCompatActivity {
 //        startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
 
         mAuth = FirebaseAuth.getInstance();
+        //mAuth.addAuthStateListener(mAuthStateListener);
 
         registerButtonMain = findViewById(R.id.RegisterButtonMain);
         signupButtonMain = findViewById(R.id.SignInButtonMain);
 
         emailTextRegister = findViewById(R.id.emailTextRegister);
         passwordTextRegister = findViewById(R.id.passwordTextRegister2);
+
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser() != null) {
+                    startActivity(new Intent(LoginActivity.this, CatalogueActivity.class));
+                }
+
+            }
+        };
+
 
         registerButtonMain.setOnClickListener(new View.OnClickListener() {
             @Override
