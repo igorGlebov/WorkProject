@@ -44,7 +44,6 @@ public class CatalogueActivity extends AppCompatActivity
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
-    ListView listView;
     String[] strings;
 
     private static final int CAMERA_REQUEST = 0;

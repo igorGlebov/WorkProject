@@ -147,7 +147,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
     private void addUserToDatabase(){
         putAvatarToStorage(((BitmapDrawable)imageAvatar.getDrawable()).getBitmap());
 
-        DatabaseReference userRef = database.getReference("Users").child(user.getUserID().toString());
+        DatabaseReference userRef = database.getReference("Users").child(user.getUserID());
 
         userRef.setValue(user);
 
