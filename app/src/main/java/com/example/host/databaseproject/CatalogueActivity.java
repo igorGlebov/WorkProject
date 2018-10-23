@@ -53,6 +53,7 @@ public class CatalogueActivity extends AppCompatActivity
     private StorageReference storageReference;
     private DatabaseReference userReference;
     private FirebaseUser currentUser;
+    private FirebaseAuth mAuth;
 
     private ImageButton changeAvatarButton;
 
@@ -135,6 +136,7 @@ public class CatalogueActivity extends AppCompatActivity
         changeAvatarButton = findViewById(R.id.changeAvatarButton);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference(currentUser.getUid());
+        mAuth = FirebaseAuth.getInstance();
 
         //Фрагмент по умолчанию
         CatalogueFragment fragment = new CatalogueFragment();
@@ -224,6 +226,7 @@ public class CatalogueActivity extends AppCompatActivity
             settingsFragment = fragment;
             title = R.string.title_settings;
         } else if (id == R.id.logOut) {
+            mAuth.signOut();
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         } else if (id == R.id.basket) {
             BasketFragment basketFragment = new BasketFragment();
