@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, "Пароли не совпадают!", Toast.LENGTH_LONG).show();
             return;
         }
-
+        //Проверить работу чека
         if(!Check.checkPassword(password)){
             Toast.makeText(RegisterActivity.this, "Усложните пароль! Он обязательно должен содержать символы высокого и низкого регистра и цифры", Toast.LENGTH_LONG).show();
             return;
