@@ -1,5 +1,6 @@
 package com.example.host.databaseproject;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -102,11 +104,9 @@ public class CatalogueActivity extends AppCompatActivity
                         }
                         changeAvatarInStorage(bitmap);
                         //changeAvatarButton.setImageBitmap(bitmap);
-
                     }
             }
         }
-
     }
 
     void changeAvatarInStorage(Bitmap avatar){
@@ -212,17 +212,11 @@ public class CatalogueActivity extends AppCompatActivity
 
         if (id == R.id.katalog) {
             CatalogueFragment fragment = new CatalogueFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
+            replaceFragment(fragment);
             title = R.string.title_catalogue;
         } else if (id == R.id.settings) {
             SettingsFragment fragment = new SettingsFragment ();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
+            replaceFragment(fragment);
             settingsFragment = fragment;
             title = R.string.title_settings;
         } else if (id == R.id.logOut) {
@@ -230,20 +224,14 @@ public class CatalogueActivity extends AppCompatActivity
             startActivity(new Intent(CatalogueActivity.this, LoginActivity.class));
         } else if (id == R.id.basket) {
             BasketFragment basketFragment = new BasketFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, basketFragment);
-            fragmentTransaction.commit();
+            replaceFragment(basketFragment);
             title = R.string.title_basket;
             Bundle bundle = new Bundle();
             bundle.putStringArray(BasketFragment.EXTRA_KEY, strings);
             basketFragment.setArguments(bundle);
         } else if (id == R.id.orderHistory) {
             OrderHistoryFragment fragment = new OrderHistoryFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
+            replaceFragment(fragment);
             title = R.string.title_order_history;
         }
 
@@ -259,6 +247,15 @@ public class CatalogueActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(String[] strings) {
         this.strings = strings;
+    }
+
+    public void replaceFragment(android.support.v4.app.Fragment fragment){
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction(); // начало транзакции фрагмента
+        fragmentTransaction.replace(R.id.fragment_container, fragment); // замена фрагмента, содержащегося в контейнере
+        //fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // анимация перехода
+        fragmentTransaction.addToBackStack(null); // помещение транзакции в стек возврата
+        fragmentTransaction.commit(); // закрепляет изменения
     }
 }
 

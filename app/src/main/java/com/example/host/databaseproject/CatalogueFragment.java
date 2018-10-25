@@ -58,7 +58,6 @@ public class CatalogueFragment extends Fragment {
     }
 
     interface OnFragmentInteractionListener {
-
         void onFragmentInteraction(String[] array);
     }
 
