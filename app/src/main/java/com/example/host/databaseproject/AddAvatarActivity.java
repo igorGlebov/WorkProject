@@ -39,10 +39,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     private FirebaseStorage usersStorage;
     private StorageReference storageReference;
-
-
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,46 +60,29 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
         storageReference = FirebaseStorage.getInstance().getReference();
         //
 
-
         addAvatarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CustomDialogFragment dialogFragment = new CustomDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "custom");
-                //addUserToDatabase();//Добавим пользователя в базу
-                //addUserToDatabase();//Добавим пользователя в базу
-
-                //startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
-
-
             }
         });
-
 
         //Вызовется в случае нажатия "Пропустить". Как ава прикрутится параша по умолчанию (Наверное))0))
         continueAvatarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bitmap bitmap = ((BitmapDrawable)imageAvatar.getDrawable()).getBitmap();
-                user.setAvatar(bitmap);
-                addUserToDatabase();//Добавим пользователя в базу
-
+                putAvatarToStorage(bitmap);
                 startActivity(new Intent(AddAvatarActivity.this, LoginActivity.class));
-
-
             }
         });
-
-
-
     }
 
     //@Override
     public void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
-
-
     }
 
     //@Override
@@ -114,43 +94,27 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { // не удалять, для снимка
         super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = null;
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             // Фотка сделана, извлекаем картинку
-            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
-            user.setAvatar(thumbnailBitmap);//Не ебу, что я тут понаделал. Уебет? Не должно
-            imageAvatar.setImageBitmap(thumbnailBitmap);
+            bitmap = (Bitmap) data.getExtras().get("data");
+            imageAvatar.setImageBitmap(bitmap);
         }
         else{
-            Bitmap bitmap = null;
-
             switch(requestCode) {
                 case GALLERY_REQUEST:
                     if(resultCode == RESULT_OK){
                         Uri selectedImage = data.getData();
                         try {
-                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage); // ну вот здесь она получается походу
+                            putAvatarToStorage(bitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         imageAvatar.setImageBitmap(bitmap);
-                        user.setAvatar(bitmap);//Не ебу, что я тут понаделал. Уебет? Не должно - 2
                     }
             }
         }
-        //addUserToDatabase();//Добавим пользователя в базу
-
-    }
-
-
-
-
-    private void addUserToDatabase(){
-        putAvatarToStorage(((BitmapDrawable)imageAvatar.getDrawable()).getBitmap());
-
-        DatabaseReference userRef = database.getReference("Users").child(user.getUserID());
-
-        userRef.setValue(user);
-
     }
 
     void putAvatarToStorage(Bitmap avatar){
@@ -168,6 +132,4 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
             }
         });
     }
-
-
 }

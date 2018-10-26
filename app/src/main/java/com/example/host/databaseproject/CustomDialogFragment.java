@@ -36,6 +36,7 @@ public class CustomDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
         storageReference = FirebaseStorage.getInstance().getReference().child(currentUser.getUid()).child("avatar.png");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         String[] actions = {"Сделать фото", "Выбрать фото из галереи"};

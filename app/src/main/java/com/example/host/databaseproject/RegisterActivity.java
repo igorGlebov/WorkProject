@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -64,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void startSignUp() {
         final String email = emailTextRegister.getText().toString();
-        String password = passwordTextRegister.getText().toString();
+        final String password = passwordTextRegister.getText().toString();
         final String name = nameTextRegister.getText().toString();
         final String surname = secondNameTextRegister.getText().toString();
         final String fatherName = fatherNameTextRegister.getText().toString();
@@ -105,17 +106,27 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Ошибка при регистрации! Что-то пошло не так!", Toast.LENGTH_LONG).show();
                 }
-                else{
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    //user.sendEmailVerification(); // отправления письма на почту
-                    //firebaseAnalytics.setUserProperty("Name", nameTextRegister.getText().toString());
+                else {
+                    mAuth.signInWithEmailAndPassword(email, password);
+                    User user = new User(email,name, surname,fatherName, mAuth.getUid());
+                    String str = user.getUserID(); // протестировать
+                    DatabaseReference userRef = database.getReference("Users").child(user.getUserID());
+
+
+                    userRef.setValue(user);
+
+
                     Intent intent = new Intent(RegisterActivity.this, AddAvatarActivity.class);
-                    intent.putExtra("user", new User(email,name, surname,fatherName, mAuth.getUid().toString()));
+                    intent.putExtra("user", user);
+                    intent.putExtra("password", password);
 
                     startActivity(intent);
                 }
+
             }
         });
+
+
     }
 }
 
