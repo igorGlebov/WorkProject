@@ -39,7 +39,7 @@ public class AddAvatarActivity extends AppCompatActivity implements Datable {
 
     private FirebaseStorage usersStorage;
     private StorageReference storageReference;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
