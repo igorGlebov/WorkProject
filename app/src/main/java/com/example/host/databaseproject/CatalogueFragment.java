@@ -38,21 +38,23 @@ public class CatalogueFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_catalogue, container, false);
 
-        listView = rootView.findViewById(R.id.list);
+        //listView = rootView.findViewById(R.id.list);
         strings = new String[15];
         for(int i = 0; i < 15;i++){
             strings[i] = "Товар " + (i + 1);
         }
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this.getContext(),
-                android.R.layout.simple_list_item_multiple_choice, strings);
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                updateDetail();
-            }
-        });
+
+//        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this.getContext(),
+//                android.R.layout.simple_list_item_1, strings);
+//
+//        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                updateDetail();
+//            }
+//        });
 
         return rootView;
     }
