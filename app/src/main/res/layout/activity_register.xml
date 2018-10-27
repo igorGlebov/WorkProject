@@ -1,108 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/registration"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="115dp"
+        android:textSize="60dp"
+        android:textColor="@color/colorMaroon"
+         />
+
     <EditText
         android:id="@+id/nameText"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:width="100dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon"/>
 
     <EditText
         android:id="@+id/secondNameText"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:width="100dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/nameText"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/surname"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon"/>
 
     <EditText
         android:id="@+id/fatherNameText"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:width="100dp"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/secondNameText"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/patronymic"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
-
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:width="100dp"
-        android:text="@string/register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon"/>
 
     <EditText
         android:id="@+id/emailTextRegister"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/fatherNameText"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon"/>
 
     <EditText
         android:id="@+id/passwordTextRegister"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/emailTextRegister"
+        android:layout_marginTop="30dp"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon"/>
 
     <EditText
         android:id="@+id/passwordTextRegister2"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/passwordTextRegister"
+        android:layout_marginTop="30dp"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.631" />
+        android:backgroundTint="@color/colorMaroon"
+        android:textCursorDrawable="@color/colorMaroon" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/passwordTextRegister2"
+        android:background="@drawable/buttonsignup"/>
+</RelativeLayout>
