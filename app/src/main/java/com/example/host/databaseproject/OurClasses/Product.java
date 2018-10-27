@@ -4,7 +4,7 @@ public class Product {
     private float price;
     private String name;
     private String id;
-    private int count;
+    //private int count;
 
     public void setPrice(float price) {
         this.price = price;
@@ -30,19 +30,19 @@ public class Product {
         return id;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
+//    public void setCount(int count) {
+//        this.count = count;
+//    }
+//
+//    public int getCount() {
+//        return count;
+//    }
 
-    public int getCount() {
-        return count;
-    }
-
-    public Product(float price, String name, String id, int count){
+    public Product(float price, String name, String id){
         this.price = price;
         this.name = name;
         this.id = id;
-        this.count = count;
+        //this.count = count;
     }
 }
 
