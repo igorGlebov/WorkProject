@@ -16,7 +16,7 @@
     <string name="apply_changes">Применить изменения</string>
     <string name="old_password">Старый пароль</string>
     <string name="new_password">Новый пароль</string>
-    <string name="input">Вход</string>
+    <string name="input">Войти</string>
     <string name="registration">Регистрация</string>
     <string name="email">E-mail</string>
     <string name="password">Пароль</string>
