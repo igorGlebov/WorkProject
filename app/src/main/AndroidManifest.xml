@@ -26,6 +26,10 @@
         <activity android:name=".SettingsActivity2" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".OrderRegistrationActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
