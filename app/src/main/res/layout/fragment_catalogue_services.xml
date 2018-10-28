@@ -28,14 +28,14 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:layout_width="250dp"
+                android:layout_width="385dp"
                 android:layout_height="247dp"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="91dp"
                 android:background="@drawable/main_service_cemeteries" />
 
             <ImageButton
-                android:layout_width="250dp"
+                android:layout_width="385dp"
                 android:layout_height="247dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="91dp"
@@ -45,9 +45,9 @@
         <TableRow>
 
             <ImageButton
-                android:layout_width="370dp"
+                android:layout_width="377dp"
                 android:layout_height="247dp"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="0dp"
                 android:background="@drawable/main_service_funeral_arrangements" />
 
             <ImageButton
@@ -62,13 +62,13 @@
             <ImageButton
                 android:layout_width="377dp"
                 android:layout_height="247dp"
-                android:layout_marginStart="13dp"
+                android:layout_marginStart="0dp"
                 android:background="@drawable/main_service_advices" />
 
             <ImageButton
                 android:layout_width="377dp"
                 android:layout_height="247dp"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="0dp"
                 android:background="@drawable/main_service_200" />
         </TableRow>
     </TableLayout>

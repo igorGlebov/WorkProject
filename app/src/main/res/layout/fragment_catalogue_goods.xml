@@ -19,7 +19,7 @@
 
     <ImageButton
         android:id="@+id/ritualButton"
-        android:layout_width="392dp"
+        android:layout_width="385dp"
         android:layout_height="495dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="91dp"
@@ -38,7 +38,7 @@
 
         <ImageButton
             android:id="@+id/flowersButton"
-            android:layout_width="377dp"
+            android:layout_width="385dp"
             android:layout_height="247dp"
             android:layout_alignBottom="@+id/ritualButton"
             android:layout_alignStart="@+id/nichesButton"

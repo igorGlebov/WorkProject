@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RitualAccessoriesFragment extends Fragment {
+public class FlowersProductsFragment extends Fragment {
 
 
-    public RitualAccessoriesFragment() {
+    public FlowersProductsFragment() {
         // Required empty public constructor
     }
 
@@ -22,12 +22,8 @@ public class RitualAccessoriesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ritual_accessories, container, false);
-
-
-
         // Inflate the layout for this fragment
-        return view;
+        return inflater.inflate(R.layout.fragment_flowers_products, container, false);
     }
 
 }

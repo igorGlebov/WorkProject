@@ -6,61 +6,65 @@
     tools:context=".RitualAccessoriesFragment">
 
     <TableRow>
+
         <ImageButton
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
+            android:layout_width="385dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="91dp"
-            android:background="@drawable/main_service_cemeteries"/>
+            android:background="@drawable/main_service_cemeteries" />
 
         <ImageButton
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
+            android:layout_width="385dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="91dp"
-            android:background="@drawable/main_service_catafalque"/>
+            android:background="@drawable/main_service_catafalque" />
     </TableRow>
 
     <TableRow>
+
         <ImageButton
             android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_funeral_arrangements"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_funeral_arrangements" />
 
         <ImageButton
             android:layout_width="319dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_meals"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_meals" />
     </TableRow>
 
     <TableRow>
+
         <ImageButton
             android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_advices"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_advices" />
 
         <ImageButton
             android:layout_width="319dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_200"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_200" />
     </TableRow>
 
     <TableRow>
+
         <ImageButton
             android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_advices"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_advices" />
 
         <ImageButton
             android:layout_width="319dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/main_service_200"/>
+            android:layout_height="210dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/main_service_200" />
     </TableRow>
 
 </TableLayout>
