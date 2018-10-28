@@ -73,6 +73,14 @@ public class CatalogueGoodsFragment extends Fragment {
         nichesButton = (ImageButton) view.findViewById(R.id.nichesButton);
         layout = (RelativeLayout) view.findViewById(R.id.frameLayout);
 
+        ritualButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RitualAccessoriesFragment fragment = new RitualAccessoriesFragment();
+                replaceFragment(fragment);
+            }
+        });
+
         lSwipeDetector = new GestureDetectorCompat(getContext(), new MyGestureListener());
 
         layout.setOnTouchListener(new View.OnTouchListener() {
@@ -85,6 +93,7 @@ public class CatalogueGoodsFragment extends Fragment {
 
         return view;
     }
+
 
 
 
@@ -164,13 +173,7 @@ public class CatalogueGoodsFragment extends Fragment {
                 //Подпихнуть переход вот сюда
                 //Toast.makeText(getActivity(), "Справа налево.", Toast.LENGTH_LONG).show();
                 CatalogueServicesFragment fragment = new CatalogueServicesFragment();
-                android.support.v4.app.FragmentTransaction fragmentTransaction =
-                        getActivity().getSupportFragmentManager().beginTransaction(); // начало транзакции фрагмента
-                fragmentTransaction.replace(R.id.fragment_container, fragment); // замена фрагмента, содержащегося в контейнере
-                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // анимация перехода
-                //fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_in_left);
-                fragmentTransaction.addToBackStack(null); // помещение транзакции в стек возврата
-                fragmentTransaction.commit(); // закрепляет изменения
+                replaceFragment(fragment);
 
             }
             else if(e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY){
@@ -179,6 +182,15 @@ public class CatalogueGoodsFragment extends Fragment {
             }
             return false;
         }
+    }
+
+    public void replaceFragment(android.support.v4.app.Fragment fragment){
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getActivity().getSupportFragmentManager().beginTransaction(); // начало транзакции фрагмента
+        fragmentTransaction.replace(R.id.fragment_container, fragment); // замена фрагмента, содержащегося в контейнере
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // анимация перехода
+        fragmentTransaction.addToBackStack(null); // помещение транзакции в стек возврата
+        fragmentTransaction.commit(); // закрепляет изменения
     }
 
 }
