@@ -16,13 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccountActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AddAvatarActivity" />
         <activity
             android:name=".CatalogueActivity"
             android:label="@string/title_activity_catalogue"
-            android:theme="@style/customTheme" />
+            android:theme="@style/customTheme"
+            android:screenOrientation="portrait"/>
         <activity android:name=".SettingsActivity2" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".OrderRegistrationActivity" />
