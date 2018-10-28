@@ -162,7 +162,7 @@ public class CatalogueGoodsFragment extends Fragment {
                 return false;
             if (e2.getX() - e1.getX() < -SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY) {
                 //Подпихнуть переход вот сюда
-                Toast.makeText(getActivity(), "Справа налево.", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(), "Справа налево.", Toast.LENGTH_LONG).show();
                 CatalogueServicesFragment fragment = new CatalogueServicesFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction =
                         getActivity().getSupportFragmentManager().beginTransaction(); // начало транзакции фрагмента
@@ -174,8 +174,7 @@ public class CatalogueGoodsFragment extends Fragment {
 
             }
             else if(e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY){
-                Toast.makeText(getActivity(), "Слева направо.", Toast.LENGTH_LONG).show();
-
+               // Toast.makeText(getActivity(), "Слева направо.", Toast.LENGTH_LONG).show();
 
             }
             return false;
