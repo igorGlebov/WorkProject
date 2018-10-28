@@ -8,23 +8,28 @@
         <item
             android:id="@+id/katalog"
             android:title="@string/title_catalogue"
-            android:checked="true"/>
+            android:icon="@drawable/catalogue"
+            android:checked="true" />
 
         <item
             android:id="@+id/basket"
-            android:title="@string/title_basket" />
+            android:title="@string/title_basket"
+            android:icon="@drawable/basket" />
 
         <item
             android:id="@+id/orderHistory"
-            android:title="@string/title_order_history" />
+            android:title="@string/title_order_history"
+            android:icon="@drawable/orders"/>
 
         <item
             android:id="@+id/settings"
-            android:title="@string/title_settings" />
+            android:title="@string/title_settings"
+            android:icon="@drawable/settings"/>
 
         <item
             android:id="@+id/logOut"
-            android:title="@string/title_output" />
+            android:title="@string/title_output"
+            android:icon="@drawable/exit"/>
 
     </group>
 
