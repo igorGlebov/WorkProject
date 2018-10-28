@@ -32,12 +32,12 @@
         android:id="@+id/flowersButton"
         android:layout_width="377dp"
         android:layout_height="247dp"
-        android:layout_alignBottom="@+id/imageButton5"
+        android:layout_alignBottom="@+id/ritualButton"
         android:layout_alignStart="@+id/nichesButton"
         android:src="@drawable/main_prod_flowers" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/ritualButton"
         android:layout_width="319dp"
         android:layout_height="540dp"
         android:layout_alignParentStart="true"

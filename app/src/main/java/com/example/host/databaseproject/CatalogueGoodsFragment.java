@@ -3,11 +3,20 @@ package com.example.host.databaseproject;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.view.MotionEventCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 /**
@@ -16,9 +25,22 @@ import android.widget.ListView;
 public class CatalogueGoodsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener; // для обращения к активити
+
+    private GestureDetectorCompat lSwipeDetector;
+
     ListView listView;
     String[] strings;
     static int[] checked;
+    ImageButton ritualButton;
+    ImageButton nichesButton;
+    ImageButton flowersButton;
+    private RelativeLayout layout;
+
+    private static final int SWIPE_MIN_DISTANCE = 130;
+    private static final int SWIPE_MAX_DISTANCE = 300;
+    private static final int SWIPE_MIN_VELOCITY = 200;
+
+
 
     public CatalogueGoodsFragment() {
         // Required empty public constructor
@@ -28,7 +50,7 @@ public class CatalogueGoodsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_catalogue_goods, container, false);
+        View view = inflater.inflate(R.layout.fragment_catalogue_goods, container, false);
 
         //listView = rootView.findViewById(R.id.list);
 
@@ -45,8 +67,25 @@ public class CatalogueGoodsFragment extends Fragment {
 
 //        BottomNavigationView navigation = rootView.findViewById(R.id.navigation);
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        return rootView;
+        ritualButton = (ImageButton) view.findViewById(R.id.ritualButton);
+        flowersButton = (ImageButton) view.findViewById(R.id.flowersButton);
+        nichesButton = (ImageButton) view.findViewById(R.id.nichesButton);
+        layout = (RelativeLayout) view.findViewById(R.id.frameLayout);
+
+        lSwipeDetector = new GestureDetectorCompat(getContext(), new MyGestureListener());
+
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return lSwipeDetector.onTouchEvent(event);
+            }
+        });
+
+
+        return view;
     }
+
+
 
     interface OnFragmentInteractionListener {
         void onFragmentInteraction(String[] array);
@@ -92,16 +131,16 @@ public class CatalogueGoodsFragment extends Fragment {
         int checkedCount = 0;
         SparseBooleanArray checkedItemPosition = listView.getCheckedItemPositions();
 
-        for(int i = 0; i < count;i++){
-            if(checkedItemPosition.get(i)){
+        for (int i = 0; i < count; i++) {
+            if (checkedItemPosition.get(i)) {
                 checkedCount++;
             }
         }
         checked = new int[checkedCount];
         String[] strs = new String[checkedCount];
         int y = 0;
-        for(int i = 0; i < count;i++){
-            if(checkedItemPosition.get(i)){
+        for (int i = 0; i < count; i++) {
+            if (checkedItemPosition.get(i)) {
                 strs[y] = strings[i];
                 checked[y] = i;
                 y++;
@@ -110,4 +149,24 @@ public class CatalogueGoodsFragment extends Fragment {
         // Посылаем данные Activity
         mListener.onFragmentInteraction(strs);
     }
+
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
+            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_DISTANCE)
+                return false;
+            if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY) {
+                //Подпихнуть переход вот сюда
+                Toast.makeText(getActivity(), "Ошибка при загрузке аватара из базы. Проверьте соединение.", Toast.LENGTH_LONG).show();
+
+            }
+            return false;
+        }
+    }
+
 }
+
