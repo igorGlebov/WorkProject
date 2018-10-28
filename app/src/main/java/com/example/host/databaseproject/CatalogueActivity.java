@@ -1,9 +1,7 @@
 package com.example.host.databaseproject;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,9 +9,6 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,17 +18,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -44,10 +32,8 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import java.util.ArrayList;
-
 public class CatalogueActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Datable , CatalogueFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Datable , CatalogueGoodsFragment.OnFragmentInteractionListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -147,7 +133,7 @@ public class CatalogueActivity extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
 
         //Фрагмент по умолчанию
-        CatalogueFragment fragment = new CatalogueFragment();
+        CatalogueGoodsFragment fragment = new CatalogueGoodsFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -222,7 +208,7 @@ public class CatalogueActivity extends AppCompatActivity
         int title = R.string.title_catalogue;
 
         if (id == R.id.katalog) {
-            CatalogueFragment fragment = new CatalogueFragment();
+            CatalogueGoodsFragment fragment = new CatalogueGoodsFragment();
             replaceFragment(fragment);
             title = R.string.title_catalogue;
         } else if (id == R.id.settings) {

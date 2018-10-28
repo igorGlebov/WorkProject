@@ -2,36 +2,25 @@ package com.example.host.databaseproject;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CatalogueFragment extends Fragment {
+public class CatalogueGoodsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener; // для обращения к активити
     ListView listView;
     String[] strings;
     static int[] checked;
 
-    public CatalogueFragment() {
+    public CatalogueGoodsFragment() {
         // Required empty public constructor
     }
 
@@ -39,7 +28,7 @@ public class CatalogueFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_catalogue, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_catalogue_goods, container, false);
 
         //listView = rootView.findViewById(R.id.list);
 

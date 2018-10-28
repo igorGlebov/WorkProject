@@ -16,6 +16,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -41,6 +43,10 @@ repositories {
 
 dependencies {
     compile 'com.kyanogen.signatureview:signature-view:1.2'
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:27.+'
 }
 
 dependencies {
