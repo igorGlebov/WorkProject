@@ -6,6 +6,8 @@ import com.example.host.databaseproject.OurClasses.Product;
 
 public class Cloth extends Product {
     private String contains;
+    private int size;
+
     private enum Types{
         FOOTWEAR("Обувь"),  MALE_COMPLECT("Мужской комплект"), FEMALE_COMBLECT("Женский комплект");
 
@@ -23,6 +25,14 @@ public class Cloth extends Product {
 
     public String getContains() {
         return contains;
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public String getType(String value) {

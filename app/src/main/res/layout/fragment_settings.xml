@@ -12,29 +12,33 @@
         android:layout_height="517dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="81dp">
 
         <Button
             android:id="@+id/changePasswordSettingsButton"
-            android:layout_width="match_parent"
+            android:layout_width="485dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="4dp"
             android:layout_marginTop="169dp"
-            android:background="@android:color/background_light"
+
+            android:background="@drawable/buttonsignup"
             android:text="@string/change_password"
+            android:textColor="@color/white"
+
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.964"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.257" />
+            app:layout_constraintVertical_bias="0.53" />
 
         <ImageButton
             android:id="@+id/changeAvatarButton"
-            android:layout_width="137dp"
-            android:layout_height="137dp"
+            android:layout_width="356dp"
+            android:layout_height="356dp"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/emailSettingsView"
             android:layout_marginTop="20dp"
@@ -47,7 +51,7 @@
 
         <EditText
             android:id="@+id/nameSettingsView"
-            android:layout_width="199dp"
+            android:layout_width="485dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
@@ -57,29 +61,31 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.968"
+            app:layout_constraintHorizontal_bias="0.987"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.081" />
 
         <EditText
             android:id="@+id/fatherNameSettingsView"
-            android:layout_width="199dp"
+            android:layout_width="485dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/changeAvatarButton"
             android:layout_alignStart="@+id/nameSettingsView"
+            android:layout_marginTop="12dp"
+
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.913"
+            app:layout_constraintHorizontal_bias="0.961"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.257" />
+            app:layout_constraintVertical_bias="0.35" />
 
         <EditText
             android:id="@+id/surnameSettingsView"
-            android:layout_width="199dp"
+            android:layout_width="485dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/nameSettingsView"
@@ -88,15 +94,15 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.913"
+            app:layout_constraintHorizontal_bias="0.961"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.017" />
 
         <EditText
             android:id="@+id/emailSettingsView"
-            android:layout_width="367dp"
-            android:layout_height="49dp"
+            android:layout_width="485dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:ems="10"
@@ -104,9 +110,10 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintHorizontal_bias="0.961"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.383" />
+            app:layout_constraintVertical_bias="0.532" />
+
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
