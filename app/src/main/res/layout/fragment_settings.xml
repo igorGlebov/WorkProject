@@ -16,7 +16,7 @@
 
         <Button
             android:id="@+id/changePasswordSettingsButton"
-            android:layout_width="485dp"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -50,42 +50,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/nameSettingsView"
-            android:layout_width="485dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="11dp"
-            android:layout_marginTop="65dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.987"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.081" />
-
-        <EditText
-            android:id="@+id/fatherNameSettingsView"
-            android:layout_width="485dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/changeAvatarButton"
-            android:layout_alignStart="@+id/nameSettingsView"
-            android:layout_marginTop="12dp"
-
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.961"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35" />
-
-        <EditText
             android:id="@+id/surnameSettingsView"
-            android:layout_width="485dp"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/nameSettingsView"
@@ -100,8 +66,42 @@
             app:layout_constraintVertical_bias="0.017" />
 
         <EditText
+            android:id="@+id/nameSettingsView"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="11dp"
+            android:layout_marginTop="65dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.987"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.081"
+            tools:ignore="NotSibling" />
+
+        <EditText
+            android:id="@+id/fatherNameSettingsView"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/changeAvatarButton"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.961"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35" />
+
+
+        <EditText
             android:id="@+id/emailSettingsView"
-            android:layout_width="485dp"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"

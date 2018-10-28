@@ -159,9 +159,13 @@ public class CatalogueGoodsFragment extends Fragment {
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
             if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_DISTANCE)
                 return false;
-            if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY) {
+            if (e2.getX() - e1.getX() < -SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY) {
                 //Подпихнуть переход вот сюда
-                Toast.makeText(getActivity(), "Ошибка при загрузке аватара из базы. Проверьте соединение.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Справа налево.", Toast.LENGTH_LONG).show();
+
+            }
+            else if(e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY){
+                Toast.makeText(getActivity(), "Слева направо.", Toast.LENGTH_LONG).show();
 
             }
             return false;
