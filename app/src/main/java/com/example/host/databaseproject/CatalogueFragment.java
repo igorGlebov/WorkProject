@@ -2,11 +2,14 @@ package com.example.host.databaseproject;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -39,11 +42,6 @@ public class CatalogueFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_catalogue, container, false);
 
         //listView = rootView.findViewById(R.id.list);
-        strings = new String[15];
-        for(int i = 0; i < 15;i++){
-            strings[i] = "Товар " + (i + 1);
-        }
-
 
 //        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this.getContext(),
 //                android.R.layout.simple_list_item_1, strings);
@@ -56,12 +54,36 @@ public class CatalogueFragment extends Fragment {
 //            }
 //        });
 
+//        BottomNavigationView navigation = rootView.findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         return rootView;
     }
 
     interface OnFragmentInteractionListener {
         void onFragmentInteraction(String[] array);
     }
+
+//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.navigation_goods: // при нажатии на товары
+//                    GoodsFragment fragment = new GoodsFragment();
+//                    android.support.v4.app.FragmentTransaction fragmentTransaction =
+//                            getActivity().getSupportFragmentManager().beginTransaction(); // начало транзакции фрагмента
+//                    fragmentTransaction.replace(R.id.fragment_container, fragment); // замена фрагмента, содержащегося в контейнере
+//                    //fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // анимация перехода
+//                    fragmentTransaction.addToBackStack(null); // помещение транзакции в стек возврата
+//                    fragmentTransaction.commit(); // закрепляет изменения
+//                    return true;
+//                case R.id.navigation_amenities: // при нажатии на услуги
+//                    return true;
+//            }
+//            return false;
+//        }
+//    };
 
     @Override
     public void onAttach(Context context) {
