@@ -226,7 +226,8 @@ public class SettingsFragment extends Fragment   {
         }
         if(!emailView.getText().toString().isEmpty() && !emailView.getText().toString().equals(email)){
             userReference.child(currentUser.getUid()).child("email").setValue(emailView.getText().toString());
-            currentUser.updateEmail(emailView.getText().toString());
+            mAuth.getCurrentUser().updateEmail(emailView.getText().toString());
+
         }
     }
 
