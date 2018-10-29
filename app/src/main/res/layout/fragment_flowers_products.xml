@@ -19,9 +19,9 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="247dp"
+        android:layout_height="210dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="585dp"
+        android:layout_marginTop="511dp"
 
         android:background="@drawable/flowers_products_decore" />
 
@@ -37,14 +37,14 @@
 
             <ImageButton
                 android:layout_width="385dp"
-                android:layout_height="247dp"
+                android:layout_height="210dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="91dp"
                 android:background="@drawable/flowers_products_bouquet" />
 
             <ImageButton
                 android:layout_width="385dp"
-                android:layout_height="247dp"
+                android:layout_height="210dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="91dp"
                 android:background="@drawable/flowers_products_artificial_wreaths" />
@@ -54,13 +54,13 @@
 
             <ImageButton
                 android:layout_width="377dp"
-                android:layout_height="247dp"
+                android:layout_height="210dp"
                 android:layout_marginStart="0dp"
                 android:background="@drawable/flowers_products_flower_baskets" />
 
             <ImageButton
                 android:layout_width="370dp"
-                android:layout_height="247dp"
+                android:layout_height="210dp"
                 android:layout_marginStart="0dp"
                 android:background="@drawable/flowers_products_living_wreaths" />
         </TableRow>
