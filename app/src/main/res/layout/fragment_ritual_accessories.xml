@@ -12,14 +12,14 @@
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="91dp"
-            android:background="@drawable/main_service_cemeteries" />
+            android:background="@drawable/products_complexes" />
 
         <ImageButton
             android:layout_width="385dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="91dp"
-            android:background="@drawable/main_service_catafalque" />
+            android:background="@drawable/products_coffins" />
     </TableRow>
 
     <TableRow>
@@ -28,13 +28,13 @@
             android:layout_width="350dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_funeral_arrangements" />
+            android:background="@drawable/products_roods" />
 
         <ImageButton
             android:layout_width="319dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_meals" />
+            android:background="@drawable/products_bed" />
     </TableRow>
 
     <TableRow>
@@ -43,13 +43,13 @@
             android:layout_width="350dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_advices" />
+            android:background="@drawable/products_clothes" />
 
         <ImageButton
             android:layout_width="319dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_200" />
+            android:background="@drawable/products_wreaths" />
     </TableRow>
 
     <TableRow>
@@ -58,13 +58,13 @@
             android:layout_width="350dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_advices" />
+            android:background="@drawable/products_urns" />
 
         <ImageButton
             android:layout_width="319dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"
-            android:background="@drawable/main_service_200" />
+            android:background="@drawable/products_ribbows" />
     </TableRow>
 
 </TableLayout>
