@@ -46,6 +46,7 @@
             android:background="@drawable/products_clothes" />
 
         <ImageButton
+            android:id="@+id/ritualAccessoriesFlowersButton"
             android:layout_width="319dp"
             android:layout_height="210dp"
             android:layout_marginStart="0dp"

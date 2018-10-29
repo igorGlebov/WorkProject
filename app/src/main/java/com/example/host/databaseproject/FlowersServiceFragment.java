@@ -37,7 +37,7 @@ public class FlowersServiceFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_catalogue_services, container, false);
+        View view = inflater.inflate(R.layout.fragment_flowers_service, container, false);
 
         //listView = rootView.findViewById(R.id.list);
 

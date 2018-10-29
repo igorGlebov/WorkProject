@@ -81,6 +81,14 @@ public class CatalogueGoodsFragment extends Fragment {
             }
         });
 
+        flowersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FlowersProductsFragment fragment = new FlowersProductsFragment();
+                replaceFragment(fragment);
+            }
+        });
+
         lSwipeDetector = new GestureDetectorCompat(getContext(), new MyGestureListener());
 
         layout.setOnTouchListener(new View.OnTouchListener() {
