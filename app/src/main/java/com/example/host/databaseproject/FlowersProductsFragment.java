@@ -78,8 +78,13 @@ public class FlowersProductsFragment extends Fragment {
         }
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
-            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_DISTANCE)
-                return false;
+//            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_DISTANCE)
+//                return false;
+            if(e2.getY() - e1.getY() < -SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY){
+                CatalogueGoodsFragment fragment = new CatalogueGoodsFragment();
+                replaceFragment(fragment);
+            }
+
             if (e2.getX() - e1.getX() < -SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_MIN_VELOCITY) {
                 //Подпихнуть переход вот сюда
                 //Toast.makeText(getActivity(), "Справа налево.", Toast.LENGTH_LONG).show();
