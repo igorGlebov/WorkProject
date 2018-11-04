@@ -42,5 +42,12 @@
         android:layout_marginTop="10dp"
         android:textSize="30dp"/>
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/coffin"
+        android:layout_toRightOf="@+id/description"
+        android:layout_marginLeft="100dp"/>
+
 
 </RelativeLayout>
