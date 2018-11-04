@@ -28,6 +28,7 @@
     <string name="register">Зарегистрироваться</string>
     <string name="goods">Товары</string>
     <string name="amenities">Услуги</string>
+    <string name="add">Добавить</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
@@ -20,6 +21,7 @@ import android.widget.RelativeLayout;
 public class RitualAccessoriesFragment extends Fragment {
 
     ImageButton flowersButton;
+    ImageButton buttonCoffins;
 
     private GestureDetectorCompat lSwipeDetector;
 
@@ -40,11 +42,20 @@ public class RitualAccessoriesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ritual_accessories, container, false);
 
         flowersButton = view.findViewById(R.id.ritualAccessoriesFlowersButton);
+        buttonCoffins = view.findViewById(R.id.coffinsButton);
 
         flowersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FlowersProductsFragment fragment = new FlowersProductsFragment();
+                replaceFragment(fragment);
+            }
+        });
+
+        buttonCoffins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Coffins fragment = new Coffins();
                 replaceFragment(fragment);
             }
         });
