@@ -16,7 +16,7 @@ public class Urn extends Product {
         this.material = material;
     }
 
-    public Urn(float price, String name, String id,  int count, Bitmap image, String material){
+    public Urn(String price, String name, String id,  int count, Bitmap image, String material){
         super(price, name, id, count, image);
         this.material = material;
     }

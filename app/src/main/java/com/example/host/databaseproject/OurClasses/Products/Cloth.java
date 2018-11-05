@@ -53,7 +53,7 @@ public class Cloth extends Product {
     }
 
 
-    public Cloth(float price, String name, String id, int count, Bitmap image, String contains){
+    public Cloth(String price, String name, String id, int count, Bitmap image, String contains){
         super(price, name, id, count, image);
         this.contains = contains;
     }

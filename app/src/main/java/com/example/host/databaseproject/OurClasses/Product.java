@@ -5,17 +5,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 public class Product {
-    private float price;
+    private String price;
     private String name;
     private String id;
     private int count;
     private Bitmap image;
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -43,7 +43,7 @@ public class Product {
         return count;
     }
 
-    public Product(float price, String name, String id, int count, Bitmap image){
+    public Product(String price, String name, String id, int count, Bitmap image){
         this.price = price;
         this.name = name;
         this.id = id;
@@ -51,7 +51,11 @@ public class Product {
         if(image != null){
             this.image = image;
         }
+    }
 
+    public Product(String price, String name) {
+        this.price = price;
+        this.name = name;
     }
 }
 

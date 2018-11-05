@@ -25,7 +25,7 @@ public class Coffin extends Product {
         this.cloth = cloth;
     }
 
-    public Coffin(float price, String name, String id,  int count, Bitmap image, String cloth, String material){
+    public Coffin(String price, String name, String id,  int count, Bitmap image, String cloth, String material){
         super(price, name, id, count, image);
         this.cloth = cloth;
         this.material = material;

@@ -24,7 +24,7 @@ public class Rood extends Product {
         this.material = material;
     }
 
-    public Rood(float price, String name, String id, int count, Bitmap image, String material, double hight){
+    public Rood(String price, String name, String id, int count, Bitmap image, String material, double hight){
         super(price, name, id, count, image);
         this.hight = hight;
         this.material = material;

@@ -28,7 +28,7 @@ public class Ribbon extends Product {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public Ribbon(float price, String name, String id, int count, Bitmap image, String material, String text){
+    public Ribbon(String price, String name, String id, int count, Bitmap image, String material, String text){
         super(price, name, id, count, image);
         this.text = text;
         this.material = material;

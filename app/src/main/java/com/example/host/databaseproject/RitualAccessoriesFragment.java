@@ -55,7 +55,7 @@ public class RitualAccessoriesFragment extends Fragment {
         buttonCoffins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Coffins fragment = new Coffins();
+                CoffinsFragment fragment = new CoffinsFragment();
                 replaceFragment(fragment);
             }
         });
