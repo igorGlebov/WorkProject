@@ -50,6 +50,12 @@ public class CoffinsFragment extends ListFragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, // добавляет макет с фрагменту
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_item_list, null);
+    }
+
     public class MyListAdapter extends ArrayAdapter<Product> {
 
         private Context mContext;
