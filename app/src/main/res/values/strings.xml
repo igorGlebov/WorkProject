@@ -29,6 +29,7 @@
     <string name="goods">Товары</string>
     <string name="amenities">Услуги</string>
     <string name="add">Добавить</string>
+    <string name="coffins">Гробы</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
